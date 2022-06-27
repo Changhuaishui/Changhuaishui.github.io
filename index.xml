@@ -1,0 +1,20 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>陈国铨的博客 on 陈国铨的博客</title>
+    <link>https://Changhuaishui.github.io/</link>
+    <description>Recent content in 陈国铨的博客 on 陈国铨的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="https://Changhuaishui.github.io/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Cgq</title>
+      <link>https://Changhuaishui.github.io/cgq/</link>
+      <pubDate>Mon, 27 Jun 2022 22:40:23 +0800</pubDate>
+      
+      <guid>https://Changhuaishui.github.io/cgq/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
