@@ -4,16 +4,24 @@
   <meta charset="utf-8">
   
   
-  <title>解决个人在intellij中部署maven的pom文件出现的错误 | 解决个人在intellij中部署maven的pom文件出现的错误</title>
+  <title>解决个人在 IntelliJ 中部署 Maven 的 POM 文件出现的错误 | 解决个人在intellij中部署maven的pom文件出现的错误</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="解决个人在intellij中部署maven的pom文件出现的错误">
+  <meta name="description" content="🛠️ Maven POM 配置与依赖解析问题诊断及解决方案（地区本人用户） 目录 问题背景与初始症状 关键线索：文件锁定错误 根本原因确认：ESET 杀毒软件的干扰 ESET 如何导致 Maven POM 配置问题 解决方案汇总 总结   1. 问题背景与初始症状在使用 IntelliJ IDEA 进行 Maven 项目开发时，遇到如下错误： 1Non-resolvable import POM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决个人在 IntelliJ 中部署 Maven 的 POM 文件出现的错误">
 <meta property="og:url" content="http://example.com/2025/07/07/%E8%A7%A3%E5%86%B3%E4%B8%AA%E4%BA%BA%E5%9C%A8intellij%E4%B8%AD%E9%83%A8%E7%BD%B2maven%E7%9A%84pom%E6%96%87%E4%BB%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/index.html">
 <meta property="og:site_name" content="解决个人在intellij中部署maven的pom文件出现的错误">
+<meta property="og:description" content="🛠️ Maven POM 配置与依赖解析问题诊断及解决方案（地区本人用户） 目录 问题背景与初始症状 关键线索：文件锁定错误 根本原因确认：ESET 杀毒软件的干扰 ESET 如何导致 Maven POM 配置问题 解决方案汇总 总结   1. 问题背景与初始症状在使用 IntelliJ IDEA 进行 Maven 项目开发时，遇到如下错误： 1Non-resolvable import POM">
 <meta property="og:locale">
 <meta property="article:published_time" content="2025-07-07T13:22:17.000Z">
-<meta property="article:modified_time" content="2025-07-07T13:22:17.401Z">
+<meta property="article:modified_time" content="2025-07-07T14:45:37.926Z">
 <meta property="article:author" content="chenji">
+<meta property="article:tag" content="Maven">
+<meta property="article:tag" content="IntelliJ">
+<meta property="article:tag" content="POM">
+<meta property="article:tag" content="依赖">
+<meta property="article:tag" content="ESET">
+<meta property="article:tag" content="网络">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="解决个人在intellij中部署maven的pom文件出现的错误" type="application/atom+xml">
@@ -85,7 +93,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      解决个人在intellij中部署maven的pom文件出现的错误
+      解决个人在 IntelliJ 中部署 Maven 的 POM 文件出现的错误
     </h1>
   
 
@@ -93,14 +101,92 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h1 id="🛠️-Maven-POM-配置与依赖解析问题诊断及解决方案（地区本人用户）"><a href="#🛠️-Maven-POM-配置与依赖解析问题诊断及解决方案（地区本人用户）" class="headerlink" title="🛠️ Maven POM 配置与依赖解析问题诊断及解决方案（地区本人用户）"></a>🛠️ Maven POM 配置与依赖解析问题诊断及解决方案（地区本人用户）</h1><hr>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li><a href="#%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF%E4%B8%8E%E5%88%9D%E5%A7%8B%E7%97%87%E7%8A%B6">问题背景与初始症状</a></li>
+<li><a href="#%E5%85%B3%E9%94%AE%E7%BA%BF%E7%B4%A2%E6%96%87%E4%BB%B6%E9%94%81%E5%AE%9A%E9%94%99%E8%AF%AF">关键线索：文件锁定错误</a></li>
+<li><a href="#%E6%A0%B9%E6%9C%AC%E5%8E%9F%E5%9B%A0%E7%A1%AE%E8%AE%A4eset-%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%B9%B2%E6%89%B0">根本原因确认：ESET 杀毒软件的干扰</a></li>
+<li><a href="#eset-%E5%A6%82%E4%BD%95%E5%AF%BC%E8%87%B4-maven-pom-%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98">ESET 如何导致 Maven POM 配置问题</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%B1%87%E6%80%BB">解决方案汇总</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ol>
+<hr>
+<h2 id="1-问题背景与初始症状"><a href="#1-问题背景与初始症状" class="headerlink" title="1. 问题背景与初始症状"></a>1. 问题背景与初始症状</h2><p>在使用 IntelliJ IDEA 进行 Maven 项目开发时，遇到如下错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Non-resolvable import POM: The following artifacts could not be resolved: org.springframework.ai:spring-ai-bom:pom:1.0.0-M6 (absent): org.springframework.ai:spring-ai-bom:pom:1.0.0-M6 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.springframework.ai:spring-ai-bom:pom:1.0.0-M6 from/to central (https://repo.maven.apache.org/maven2): Connect to repo.maven.apache.org:443 [repo.maven.apache.org/146.75.112.215] failed: Connect timed out</span><br></pre></td></tr></table></figure>
+
+<p><strong>分析：</strong><br>Maven 无法从远程仓库下载依赖，核心原因是 <code>Connect timed out</code>（连接超时）。这通常与中国地区访问境外 Maven 仓库的网络限制有关。</p>
+<hr>
+<h2 id="2-关键线索：文件锁定错误"><a href="#2-关键线索：文件锁定错误" class="headerlink" title="2. 关键线索：文件锁定错误"></a>2. 关键线索：文件锁定错误</h2><p>后续又遇到如下错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Could not acquire lock(s)</span><br></pre></td></tr></table></figure>
+
+<p><strong>分析：</strong><br>该错误表明文件或资源被其他进程占用，Maven 或 IntelliJ IDEA 无法获得独占锁，导致操作失败。</p>
+<hr>
+<h2 id="3-根本原因确认：ESET-杀毒软件的干扰"><a href="#3-根本原因确认：ESET-杀毒软件的干扰" class="headerlink" title="3. 根本原因确认：ESET 杀毒软件的干扰"></a>3. 根本原因确认：ESET 杀毒软件的干扰</h2><p>经过排查，发现是电脑上的 <strong>ESET 杀毒软件</strong> 导致了文件锁定问题。</p>
+<hr>
+<h2 id="4-ESET-如何导致-Maven-POM-配置问题"><a href="#4-ESET-如何导致-Maven-POM-配置问题" class="headerlink" title="4. ESET 如何导致 Maven POM 配置问题"></a>4. ESET 如何导致 Maven POM 配置问题</h2><ul>
+<li>**文件锁定（File Locking）：**ESET 的实时文件系统保护会扫描 Maven 本地仓库（如 <code>~/.m2/repository</code>），在扫描过程中锁定文件，阻止 Maven 正常读写，导致依赖无法下载或校验。</li>
+<li><strong>网络拦截（Network Interception）：</strong><br>ESET 可能会拦截 Maven 与远程仓库的连接，加剧 <code>Connect timed out</code> 问题。</li>
+</ul>
+<hr>
+<h2 id="5-解决方案汇总"><a href="#5-解决方案汇总" class="headerlink" title="5. 解决方案汇总"></a>5. 解决方案汇总</h2><h3 id="5-1-针对-ESET-杀毒软件的解决方案（核心）"><a href="#5-1-针对-ESET-杀毒软件的解决方案（核心）" class="headerlink" title="5.1 针对 ESET 杀毒软件的解决方案（核心）"></a>5.1 针对 ESET 杀毒软件的解决方案（核心）</h3><ul>
+<li><p><strong>添加排除项（Exclusions）：</strong></p>
+<ul>
+<li>排除 Maven 本地仓库目录（如 <code>C:\Users\你的用户名\.m2\repository</code>）</li>
+<li>排除 IntelliJ IDEA 安装及工作目录</li>
+<li>排除 Java (JVM) 进程（如 <code>java.exe</code>、<code>javaw.exe</code>）</li>
+</ul>
+</li>
+<li><p><strong>操作步骤示例：</strong></p>
+<ol>
+<li>打开 ESET 主界面</li>
+<li>设置 → 高级设置（F5）</li>
+<li>检测引擎 → 实时文件系统保护 → 排除项</li>
+<li>添加需要排除的文件夹或文件</li>
+</ol>
+</li>
+<li><p><strong>临时禁用 ESET 实时保护</strong>（仅在必要时，操作完毕后务必重新启用）</p>
+</li>
+</ul>
+<h3 id="5-2-配置-Maven-镜像仓库（解决网络连接超时）"><a href="#5-2-配置-Maven-镜像仓库（解决网络连接超时）" class="headerlink" title="5.2 配置 Maven 镜像仓库（解决网络连接超时）"></a>5.2 配置 Maven 镜像仓库（解决网络连接超时）</h3><ul>
+<li><p>编辑 <code>~/.m2/settings.xml</code>，添加阿里云镜像：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>aliyunmaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>Aliyun Maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>在 IntelliJ IDEA 中指定 <code>settings.xml</code> 路径。</p>
+</li>
+</ul>
+<h3 id="5-3-强制刷新-Maven-本地仓库与项目"><a href="#5-3-强制刷新-Maven-本地仓库与项目" class="headerlink" title="5.3 强制刷新 Maven 本地仓库与项目"></a>5.3 强制刷新 Maven 本地仓库与项目</h3><ul>
+<li><p>删除本地仓库中相关 <code>.lastUpdated</code> 文件或整个依赖文件夹</p>
+</li>
+<li><p>运行命令强制更新：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean install -U</span><br></pre></td></tr></table></figure></li>
+<li><p>在 IntelliJ IDEA 中点击 Maven Projects → Reimport All Maven Projects，并勾选 Force Update</p>
+</li>
+</ul>
+<h3 id="5-4-IntelliJ-IDEA-相关操作"><a href="#5-4-IntelliJ-IDEA-相关操作" class="headerlink" title="5.4 IntelliJ IDEA 相关操作"></a>5.4 IntelliJ IDEA 相关操作</h3><ul>
+<li>清除缓存并重启：<br><code>File → Invalidate Caches / Restart... → Invalidate and Restart</code></li>
+</ul>
+<h3 id="5-5-其他网络排查建议"><a href="#5-5-其他网络排查建议" class="headerlink" title="5.5 其他网络排查建议"></a>5.5 其他网络排查建议</h3><ul>
+<li>检查本地防火墙设置</li>
+<li>确保 DNS 能正确解析 Maven 仓库地址</li>
+</ul>
+<hr>
+<h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. 总结</h2><p>你遇到的 Maven POM 配置问题，是中国地区网络限制、Maven 缓存机制和 ESET 杀毒软件三者共同作用的结果。<br>通过<strong>添加 ESET 排除项</strong>、<strong>配置国内镜像</strong>、<strong>强制刷新依赖</strong>和<strong>清理 IDEA 缓存</strong>，可以彻底解决此类问题。</p>
+<hr>
+<blockquote>
+<p><strong>遇到问题不可怕，关键是科学排查与系统解决。祝你开发顺利！</strong></p>
+</blockquote>
+<hr>
+<p><em>如有更多问题，欢迎留言或通过 <a target="_blank" rel="noopener" href="https://github.com/Changhuaishui">GitHub</a> 联系我。</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/07/07/%E8%A7%A3%E5%86%B3%E4%B8%AA%E4%BA%BA%E5%9C%A8intellij%E4%B8%AD%E9%83%A8%E7%BD%B2maven%E7%9A%84pom%E6%96%87%E4%BB%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/" data-id="cmct5kh1t0001mcije0mb07zf" data-title="解决个人在intellij中部署maven的pom文件出现的错误" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/07/07/%E8%A7%A3%E5%86%B3%E4%B8%AA%E4%BA%BA%E5%9C%A8intellij%E4%B8%AD%E9%83%A8%E7%BD%B2maven%E7%9A%84pom%E6%96%87%E4%BB%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/" data-id="cmct9g5a100019kijevg1ecy1" data-title="解决个人在 IntelliJ 中部署 Maven 的 POM 文件出现的错误" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ESET/" rel="tag">ESET</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IntelliJ/" rel="tag">IntelliJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POM/" rel="tag">POM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BE%9D%E8%B5%96/" rel="tag">依赖</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+
     </footer>
   </div>
   
@@ -130,7 +216,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESET/" rel="tag">ESET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntelliJ/" rel="tag">IntelliJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/POM/" rel="tag">POM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BE%9D%E8%B5%96/" rel="tag">依赖</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
     </div>
   </div>
 
@@ -140,7 +226,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a>
+      <a href="/tags/ESET/" style="font-size: 10px;">ESET</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IntelliJ/" style="font-size: 10px;">IntelliJ</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/POM/" style="font-size: 10px;">POM</a> <a href="/tags/%E4%BE%9D%E8%B5%96/" style="font-size: 10px;">依赖</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">网络</a>
     </div>
   </div>
 
@@ -162,7 +248,7 @@
       <ul>
         
           <li>
-            <a href="/2025/07/07/%E8%A7%A3%E5%86%B3%E4%B8%AA%E4%BA%BA%E5%9C%A8intellij%E4%B8%AD%E9%83%A8%E7%BD%B2maven%E7%9A%84pom%E6%96%87%E4%BB%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/">解决个人在intellij中部署maven的pom文件出现的错误</a>
+            <a href="/2025/07/07/%E8%A7%A3%E5%86%B3%E4%B8%AA%E4%BA%BA%E5%9C%A8intellij%E4%B8%AD%E9%83%A8%E7%BD%B2maven%E7%9A%84pom%E6%96%87%E4%BB%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/">解决个人在 IntelliJ 中部署 Maven 的 POM 文件出现的错误</a>
           </li>
         
           <li>
