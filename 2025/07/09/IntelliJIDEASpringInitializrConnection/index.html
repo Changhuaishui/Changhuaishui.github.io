@@ -4,23 +4,27 @@
   <meta charset="utf-8">
   
   
-  <title>Welcome to My Tech Blog | 解决个人在intellij中部署maven的pom文件出现的错误</title>
+  <title>IntelliJ IDEA Spring Initializr &#39;Connection refused: getsockopt&#39; 解决方案 | 解决个人在intellij中部署maven的pom文件出现的错误</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="👋 你好，欢迎来到我的技术博客！ 热爱生活，持续成长。   🚀 关于我 Java开发者，热衷于探索  技术与前沿趋势 擅长 Java&#x2F;Vue &#x2F; Node.js 喜欢分享、乐于交流，追求极致的用户体验与代码美学   📝 博客内容 前端开发实战与源码解析 技术难题解决方案与心得 工具链、自动化与效率提升 个人成长与学习方法   🌐 让我们一起进步欢迎关注、交流、讨论前端与">
+  <meta name="description" content="IntelliJ IDEA 初始化Spring项目失败：Connection refused: getsockopt事件描述用户尝试在IntelliJ IDEA中使用Spring Initializr创建项目时，遇到错误提示：  ‘https:&#x2F;&#x2F;start.spring.io‘ 的初始化失败Cannot download ‘https:&#x2F;&#x2F;start.spring.io‘: Connection">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Welcome to My Tech Blog">
-<meta property="og:url" content="http://example.com/2025/07/07/hello-world/index.html">
+<meta property="og:title" content="IntelliJ IDEA Spring Initializr &#39;Connection refused: getsockopt&#39; 解决方案">
+<meta property="og:url" content="http://example.com/2025/07/09/IntelliJIDEASpringInitializrConnection/index.html">
 <meta property="og:site_name" content="解决个人在intellij中部署maven的pom文件出现的错误">
-<meta property="og:description" content="👋 你好，欢迎来到我的技术博客！ 热爱生活，持续成长。   🚀 关于我 Java开发者，热衷于探索  技术与前沿趋势 擅长 Java&#x2F;Vue &#x2F; Node.js 喜欢分享、乐于交流，追求极致的用户体验与代码美学   📝 博客内容 前端开发实战与源码解析 技术难题解决方案与心得 工具链、自动化与效率提升 个人成长与学习方法   🌐 让我们一起进步欢迎关注、交流、讨论前端与">
+<meta property="og:description" content="IntelliJ IDEA 初始化Spring项目失败：Connection refused: getsockopt事件描述用户尝试在IntelliJ IDEA中使用Spring Initializr创建项目时，遇到错误提示：  ‘https:&#x2F;&#x2F;start.spring.io‘ 的初始化失败Cannot download ‘https:&#x2F;&#x2F;start.spring.io‘: Connection">
 <meta property="og:locale">
-<meta property="article:published_time" content="2025-07-07T13:19:30.043Z">
-<meta property="article:modified_time" content="2025-07-07T13:43:46.313Z">
+<meta property="og:image" content="http://example.com/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501025386.png">
+<meta property="og:image" content="http://example.com/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501066694.png">
+<meta property="article:published_time" content="2025-07-09T04:00:00.000Z">
+<meta property="article:modified_time" content="2025-07-14T13:53:33.974Z">
 <meta property="article:author" content="chenji">
-<meta property="article:tag" content="前端">
-<meta property="article:tag" content="技术">
-<meta property="article:tag" content="博客">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="网络">
+<meta property="article:tag" content="IntelliJ IDEA">
+<meta property="article:tag" content="Spring Initializr">
+<meta property="article:tag" content="代理">
+<meta property="article:tag" content="错误分析">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501025386.png">
   
     <link rel="alternate" href="/atom.xml" title="解决个人在intellij中部署maven的pom文件出现的错误" type="application/atom+xml">
   
@@ -77,12 +81,16 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-IntelliJIDEASpringInitializrConnection" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/07/07/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2025-07-07T13:19:30.043Z" itemprop="datePublished">2025-07-07</time>
+    <a href="/2025/07/09/IntelliJIDEASpringInitializrConnection/" class="article-date">
+  <time class="dt-published" datetime="2025-07-09T04:00:00.000Z" itemprop="datePublished">2025-07-09</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a>►<a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/">Spring</a>►<a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/IDEA/">IDEA</a>►<a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/IDEA/%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/">网络问题</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -91,7 +99,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      Welcome to My Tech Blog
+      IntelliJ IDEA Spring Initializr &#39;Connection refused: getsockopt&#39; 解决方案
     </h1>
   
 
@@ -99,51 +107,60 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="👋-你好，欢迎来到我的技术博客！"><a href="#👋-你好，欢迎来到我的技术博客！" class="headerlink" title="👋 你好，欢迎来到我的技术博客！"></a>👋 你好，欢迎来到我的技术博客！</h1><blockquote>
-<p><strong>热爱生活，持续成长。</strong></p>
-</blockquote>
-<hr>
-<h2 id="🚀-关于我"><a href="#🚀-关于我" class="headerlink" title="🚀 关于我"></a>🚀 关于我</h2><ul>
-<li>Java开发者，热衷于探索  技术与前沿趋势</li>
-<li>擅长 Java&#x2F;Vue &#x2F; Node.js</li>
-<li>喜欢分享、乐于交流，追求极致的用户体验与代码美学</li>
-</ul>
-<hr>
-<h2 id="📝-博客内容"><a href="#📝-博客内容" class="headerlink" title="📝 博客内容"></a>📝 博客内容</h2><ul>
-<li>前端开发实战与源码解析</li>
-<li>技术难题解决方案与心得</li>
-<li>工具链、自动化与效率提升</li>
-<li>个人成长与学习方法</li>
-</ul>
-<hr>
-<h2 id="🌐-让我们一起进步"><a href="#🌐-让我们一起进步" class="headerlink" title="🌐 让我们一起进步"></a>🌐 让我们一起进步</h2><p>欢迎关注、交流、讨论前端与技术相关话题！<br>你可以在评论区留言，或通过 <a target="_blank" rel="noopener" href="https://github.com/Changhuaishui">GitHub</a> 联系我。</p>
-<hr>
+        <h1 id="IntelliJ-IDEA-初始化Spring项目失败：Connection-refused-getsockopt"><a href="#IntelliJ-IDEA-初始化Spring项目失败：Connection-refused-getsockopt" class="headerlink" title="IntelliJ IDEA 初始化Spring项目失败：Connection refused: getsockopt"></a>IntelliJ IDEA 初始化Spring项目失败：Connection refused: getsockopt</h1><h2 id="事件描述"><a href="#事件描述" class="headerlink" title="事件描述"></a>事件描述</h2><p>用户尝试在IntelliJ IDEA中使用Spring Initializr创建项目时，遇到错误提示：</p>
 <blockquote>
-<p><strong>Keep Coding, Keep Thinking.</strong></p>
+<p>‘<a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io</a>‘ 的初始化失败<br>Cannot download ‘<a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io</a>‘: Connection refused: getsockopt</p>
 </blockquote>
+<p>IDEA提示用户检查URL、网络和代理设置。</p>
 <hr>
-<p><em>本博客基于 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 搭建，致力于打造简约、科技感十足的技术分享空间。</em></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><ul>
+<li><p><strong>错误类型分析</strong>：</p>
+<ul>
+<li>“Connection refused: getsockopt” 表示客户端（IntelliJ IDEA）尝试连接服务器（start.spring.io）时，服务器主动拒绝了连接。</li>
+<li>这通常不是服务器宕机，而是中间存在阻碍，如防火墙、代理问题，或目标端口未开放。</li>
+<li><img src="/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501025386.png" alt="1752501025386"></li>
+</ul>
+</li>
+<li><p><strong>常见原因</strong>：</p>
+<ol>
+<li>本地防火墙或杀毒软件阻止了IDEA的出站连接。</li>
+<li>VPN网络配置导致连接受阻。</li>
+<li>代理设置不正确或缺失。</li>
+<li>SSL&#x2F;TLS证书或代理对HTTPS连接的处理问题。</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="1-检查IDEA代理配置"><a href="#1-检查IDEA代理配置" class="headerlink" title="1. 检查IDEA代理配置"></a>1. 检查IDEA代理配置</h3><ol>
+<li>打开 <code>File -&gt; Settings -&gt; Appearance and Behavior -&gt; System Settings -&gt; HTTP Proxy</code></li>
+<li>选择“Auto-detect proxy settings”（自动检测代理设置）</li>
+<li>或设置“Automatic proxy configuration URL”（自动代理配置URL）</li>
+<li>应用并重启IDEA</li>
+<li>如图：<img src="/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501066694.png" alt="1752501066694"></li>
+</ol>
+<h3 id="2-协议更改"><a href="#2-协议更改" class="headerlink" title="2. 协议更改"></a>2. 协议更改</h3><ul>
+<li>尝试将 <code>https://start.spring.io</code> 改为 <code>http://start.spring.io</code> 访问。</li>
+<li>某些网络环境下，HTTP协议可绕过SSL&#x2F;代理相关问题。</li>
+</ul>
+<h3 id="3-检查本地网络环境"><a href="#3-检查本地网络环境" class="headerlink" title="3. 检查本地网络环境"></a>3. 检查本地网络环境</h3><ul>
+<li>关闭本地防火墙&#x2F;杀毒软件后重试。</li>
+<li>断开VPN后重试。</li>
+</ul>
+<h3 id="4-其他可能性"><a href="#4-其他可能性" class="headerlink" title="4. 其他可能性"></a>4. 其他可能性</h3><ul>
+<li>历史上 initializr 项目曾有相关 <a target="_blank" rel="noopener" href="https://github.com/spring-io/initializr/issues/267">issue</a>，但目前服务稳定。</li>
+<li>若上述方法无效，可尝试命令行或浏览器直接访问 start.spring.io，排查本地网络问题。</li>
+</ul>
+<hr>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>本次“Connection refused”问题主要由IntelliJ IDEA的HTTP代理配置不正确导致。通过在IDEA中自动检测并配置代理设置，问题得以解决。同时，在特定网络环境下，尝试HTTP协议而非HTTPS或检查本地防火墙&#x2F;VPN也是有效的排查方向。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/07/07/hello-world/" data-id="cmd35xt0c0001dcijc3nehh9i" data-title="Welcome to My Tech Blog" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/07/09/IntelliJIDEASpringInitializrConnection/" data-id="cmd35zdtw0000akij58s6eqh5" data-title="IntelliJ IDEA Spring Initializr &#39;Connection refused: getsockopt&#39; 解决方案" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IntelliJ-IDEA/" rel="tag">IntelliJ IDEA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Initializr/" rel="tag">Spring Initializr</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90/" rel="tag">错误分析</a></li></ul>
 
     </footer>
   </div>
@@ -151,15 +168,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2025/07/07/%E8%A7%A3%E5%86%B3%E4%B8%AA%E4%BA%BA%E5%9C%A8intellij%E4%B8%AD%E9%83%A8%E7%BD%B2maven%E7%9A%84pom%E6%96%87%E4%BB%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          解决个人在 IntelliJ 中部署 Maven 的 POM 文件出现的错误
-        
-      </div>
-    </a>
   
+    <a href="/2025/07/08/Java%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E4%B8%8EMaven%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Java版本兼容性与Maven依赖问题全解析</div>
+    </a>
   
 </nav>
 
