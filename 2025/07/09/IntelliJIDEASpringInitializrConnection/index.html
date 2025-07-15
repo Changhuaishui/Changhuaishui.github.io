@@ -13,18 +13,18 @@
 <meta property="og:site_name" content="解决个人在intellij中部署maven的pom文件出现的错误">
 <meta property="og:description" content="IntelliJ IDEA 初始化Spring项目失败：Connection refused: getsockopt事件描述用户尝试在IntelliJ IDEA中使用Spring Initializr创建项目时，遇到错误提示：  ‘https:&#x2F;&#x2F;start.spring.io‘ 的初始化失败Cannot download ‘https:&#x2F;&#x2F;start.spring.io‘: Connection">
 <meta property="og:locale">
-<meta property="og:image" content="http://example.com/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501025386.png">
-<meta property="og:image" content="http://example.com/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501066694.png">
+<meta property="og:image" content="https://github.com/Changhuaishui/chenji/blob/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501025386.png?raw=true">
+<meta property="og:image" content="https://github.com/Changhuaishui/chenji/blob/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501066694.png?raw=true">
 <meta property="article:published_time" content="2025-07-09T04:00:00.000Z">
-<meta property="article:modified_time" content="2025-07-14T13:53:33.974Z">
+<meta property="article:modified_time" content="2025-07-15T17:05:49.803Z">
 <meta property="article:author" content="chenji">
-<meta property="article:tag" content="网络">
 <meta property="article:tag" content="IntelliJ IDEA">
 <meta property="article:tag" content="Spring Initializr">
 <meta property="article:tag" content="代理">
+<meta property="article:tag" content="网络">
 <meta property="article:tag" content="错误分析">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501025386.png">
+<meta name="twitter:image" content="https://github.com/Changhuaishui/chenji/blob/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501025386.png?raw=true">
   
     <link rel="alternate" href="/atom.xml" title="解决个人在intellij中部署maven的pom文件出现的错误" type="application/atom+xml">
   
@@ -118,7 +118,7 @@
 <ul>
 <li>“Connection refused: getsockopt” 表示客户端（IntelliJ IDEA）尝试连接服务器（start.spring.io）时，服务器主动拒绝了连接。</li>
 <li>这通常不是服务器宕机，而是中间存在阻碍，如防火墙、代理问题，或目标端口未开放。</li>
-<li><img src="/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501025386.png" alt="1752501025386"></li>
+<li><img src="https://github.com/Changhuaishui/chenji/blob/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501025386.png?raw=true" alt="错误提示"></li>
 </ul>
 </li>
 <li><p><strong>常见原因</strong>：</p>
@@ -133,10 +133,10 @@
 <hr>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="1-检查IDEA代理配置"><a href="#1-检查IDEA代理配置" class="headerlink" title="1. 检查IDEA代理配置"></a>1. 检查IDEA代理配置</h3><ol>
 <li>打开 <code>File -&gt; Settings -&gt; Appearance and Behavior -&gt; System Settings -&gt; HTTP Proxy</code></li>
-<li>选择“Auto-detect proxy settings”（自动检测代理设置）</li>
-<li>或设置“Automatic proxy configuration URL”（自动代理配置URL）</li>
+<li>选择”Auto-detect proxy settings”（自动检测代理设置）</li>
+<li>或设置”Automatic proxy configuration URL”（自动代理配置URL）</li>
 <li>应用并重启IDEA</li>
-<li>如图：<img src="/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501066694.png" alt="1752501066694"></li>
+<li>如图：<img src="https://github.com/Changhuaishui/chenji/blob/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501066694.png?raw=true" alt="代理设置"></li>
 </ol>
 <h3 id="2-协议更改"><a href="#2-协议更改" class="headerlink" title="2. 协议更改"></a>2. 协议更改</h3><ul>
 <li>尝试将 <code>https://start.spring.io</code> 改为 <code>http://start.spring.io</code> 访问。</li>
@@ -151,12 +151,12 @@
 <li>若上述方法无效，可尝试命令行或浏览器直接访问 start.spring.io，排查本地网络问题。</li>
 </ul>
 <hr>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>本次“Connection refused”问题主要由IntelliJ IDEA的HTTP代理配置不正确导致。通过在IDEA中自动检测并配置代理设置，问题得以解决。同时，在特定网络环境下，尝试HTTP协议而非HTTPS或检查本地防火墙&#x2F;VPN也是有效的排查方向。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>本次”Connection refused”问题主要由IntelliJ IDEA的HTTP代理配置不正确导致。通过在IDEA中自动检测并配置代理设置，问题得以解决。同时，在特定网络环境下，尝试HTTP协议而非HTTPS或检查本地防火墙&#x2F;VPN也是有效的排查方向。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/07/09/IntelliJIDEASpringInitializrConnection/" data-id="cmd35zdtw0000akij58s6eqh5" data-title="IntelliJ IDEA Spring Initializr &#39;Connection refused: getsockopt&#39; 解决方案" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/07/09/IntelliJIDEASpringInitializrConnection/" data-id="cmd4sbksd00009kij9tsgdard" data-title="IntelliJ IDEA Spring Initializr &#39;Connection refused: getsockopt&#39; 解决方案" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -188,7 +188,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Kategorien</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/IDEA/">IDEA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/IDEA/%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/">网络问题</a></li></ul></li></ul></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/IDEA/">IDEA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/IDEA/%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/">网络问题</a></li></ul></li></ul></li></ul></li></ul>
     </div>
   </div>
 
@@ -198,7 +198,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESET/" rel="tag">ESET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntelliJ/" rel="tag">IntelliJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntelliJ-IDEA/" rel="tag">IntelliJ IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/POM/" rel="tag">POM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Initializr/" rel="tag">Spring Initializr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BE%9D%E8%B5%96/" rel="tag">依赖</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9/" rel="tag">版本兼容</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90/" rel="tag">错误分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" rel="tag">问题解决</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESET/" rel="tag">ESET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntelliJ/" rel="tag">IntelliJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntelliJ-IDEA/" rel="tag">IntelliJ IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/POM/" rel="tag">POM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Initializr/" rel="tag">Spring Initializr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BE%9D%E8%B5%96/" rel="tag">依赖</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9/" rel="tag">版本兼容</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/" rel="tag">网络代理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90/" rel="tag">错误分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" rel="tag">问题排查</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" rel="tag">问题解决</a></li></ul>
     </div>
   </div>
 
@@ -208,7 +208,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ESET/" style="font-size: 10px;">ESET</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IntelliJ/" style="font-size: 10px;">IntelliJ</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 10px;">IntelliJ IDEA</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Maven/" style="font-size: 20px;">Maven</a> <a href="/tags/POM/" style="font-size: 10px;">POM</a> <a href="/tags/Spring-Initializr/" style="font-size: 10px;">Spring Initializr</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 10px;">代理</a> <a href="/tags/%E4%BE%9D%E8%B5%96/" style="font-size: 20px;">依赖</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a> <a href="/tags/%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9/" style="font-size: 10px;">版本兼容</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 20px;">网络</a> <a href="/tags/%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90/" style="font-size: 10px;">错误分析</a> <a href="/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" style="font-size: 10px;">问题解决</a>
+      <a href="/tags/ESET/" style="font-size: 10px;">ESET</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IntelliJ/" style="font-size: 10px;">IntelliJ</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 20px;">IntelliJ IDEA</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Maven/" style="font-size: 20px;">Maven</a> <a href="/tags/POM/" style="font-size: 10px;">POM</a> <a href="/tags/Spring-Initializr/" style="font-size: 10px;">Spring Initializr</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 10px;">代理</a> <a href="/tags/%E4%BE%9D%E8%B5%96/" style="font-size: 20px;">依赖</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a> <a href="/tags/%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9/" style="font-size: 10px;">版本兼容</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 20px;">网络</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/" style="font-size: 10px;">网络代理</a> <a href="/tags/%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90/" style="font-size: 10px;">错误分析</a> <a href="/tags/%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" style="font-size: 10px;">问题排查</a> <a href="/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" style="font-size: 10px;">问题解决</a>
     </div>
   </div>
 
@@ -217,7 +217,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li></ul>
     </div>
   </div>
 
@@ -243,6 +243,10 @@
         
           <li>
             <a href="/2025/07/07/hello-world/">Welcome to My Tech Blog</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/14/%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE%E5%AF%BC%E8%87%B4%E7%9A%84Git%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E4%B8%8E%E8%A7%A3%E5%86%B3/">代理配置导致的Git连接问题分析与解决</a>
           </li>
         
       </ul>
