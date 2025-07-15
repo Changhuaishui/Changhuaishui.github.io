@@ -13,10 +13,10 @@
 <meta property="og:site_name" content="解决个人在intellij中部署maven的pom文件出现的错误">
 <meta property="og:description" content="问题描述在使用IntelliJ IDEA中的Spring Initializr创建项目时，遇到以下错误提示：  ‘https:&#x2F;&#x2F;start.spring.io‘ 的初始化失败Cannot download ‘https:&#x2F;&#x2F;start.spring.io‘: Connection refused: getsockopt  IDEA提示需要检查URL、网络和代理设置。 问题分析错误类型分析 “Co">
 <meta property="og:locale">
-<meta property="og:image" content="https://github.com/Changhuaishui/chenji/blob/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501025386.png?raw=true">
-<meta property="og:image" content="https://github.com/Changhuaishui/chenji/blob/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501066694.png?raw=true">
+<meta property="og:image" content="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501025386.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501066694.png">
 <meta property="article:published_time" content="2025-07-09T04:00:00.000Z">
-<meta property="article:modified_time" content="2025-07-15T17:13:23.625Z">
+<meta property="article:modified_time" content="2025-07-15T17:17:53.317Z">
 <meta property="article:author" content="chenji">
 <meta property="article:tag" content="IntelliJ IDEA">
 <meta property="article:tag" content="Spring Initializr">
@@ -24,7 +24,7 @@
 <meta property="article:tag" content="网络">
 <meta property="article:tag" content="错误分析">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/Changhuaishui/chenji/blob/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501025386.png?raw=true">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501025386.png">
   
     <link rel="alternate" href="/atom.xml" title="解决个人在intellij中部署maven的pom文件出现的错误" type="application/atom+xml">
   
@@ -115,7 +115,7 @@
 <h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><h3 id="错误类型分析"><a href="#错误类型分析" class="headerlink" title="错误类型分析"></a>错误类型分析</h3><ul>
 <li>“Connection refused: getsockopt” 表示客户端（IntelliJ IDEA）尝试连接服务器（start.spring.io）时，服务器主动拒绝了连接。</li>
 <li>这通常不是服务器宕机，而是中间存在阻碍，如防火墙、代理问题，或目标端口未开放。</li>
-<li><img src="https://github.com/Changhuaishui/chenji/blob/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501025386.png?raw=true" alt="错误提示"></li>
+<li><img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501025386.png" alt="错误提示"></li>
 </ul>
 <h3 id="常见原因"><a href="#常见原因" class="headerlink" title="常见原因"></a>常见原因</h3><ol>
 <li>本地防火墙或杀毒软件阻止了IDEA的出站连接</li>
@@ -128,7 +128,7 @@
 <li>选择”Auto-detect proxy settings”（自动检测代理设置）</li>
 <li>或设置”Automatic proxy configuration URL”（自动代理配置URL）</li>
 <li>应用并重启IDEA</li>
-<li>如图：<img src="https://github.com/Changhuaishui/chenji/blob/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501066694.png?raw=true" alt="代理设置"></li>
+<li>如图：<img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501066694.png" alt="代理设置"></li>
 </ol>
 <h3 id="2-协议更改"><a href="#2-协议更改" class="headerlink" title="2. 协议更改"></a>2. 协议更改</h3><ul>
 <li>尝试将 <code>https://start.spring.io</code> 改为 <code>http://start.spring.io</code> 访问</li>
@@ -147,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/07/09/IntelliJIDEASpringInitializrConnection/" data-id="cmd4smm9t0001ioij6xon07z9" data-title="IntelliJ IDEA Spring Initializr连接被拒绝问题解决方案" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/07/09/IntelliJIDEASpringInitializrConnection/" data-id="cmd4sqr2g0000wwijfmvba7dx" data-title="IntelliJ IDEA Spring Initializr连接被拒绝问题解决方案" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
