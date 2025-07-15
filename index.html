@@ -71,86 +71,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-IntelliJIDEASpringInitializrConnection" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/07/09/IntelliJIDEASpringInitializrConnection/" class="article-date">
-  <time class="dt-published" datetime="2025-07-09T04:00:00.000Z" itemprop="datePublished">2025-07-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a>►<a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/">Spring</a>►<a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/IDEA/">IDEA</a>►<a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/IDEA/%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/">网络问题</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/07/09/IntelliJIDEASpringInitializrConnection/">IntelliJ IDEA Spring Initializr连接被拒绝问题解决方案</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在使用IntelliJ IDEA中的Spring Initializr创建项目时，遇到以下错误提示：</p>
-<blockquote>
-<p>‘<a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io</a>‘ 的初始化失败<br>Cannot download ‘<a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io</a>‘: Connection refused: getsockopt</p>
-</blockquote>
-<p>IDEA提示需要检查URL、网络和代理设置。</p>
-<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><h3 id="错误类型分析"><a href="#错误类型分析" class="headerlink" title="错误类型分析"></a>错误类型分析</h3><ul>
-<li>“Connection refused: getsockopt” 表示客户端（IntelliJ IDEA）尝试连接服务器（start.spring.io）时，服务器主动拒绝了连接。</li>
-<li>这通常不是服务器宕机，而是中间存在阻碍，如防火墙、代理问题，或目标端口未开放。</li>
-<li><img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501025386.png" alt="错误提示"></li>
-</ul>
-<h3 id="常见原因"><a href="#常见原因" class="headerlink" title="常见原因"></a>常见原因</h3><ol>
-<li>本地防火墙或杀毒软件阻止了IDEA的出站连接</li>
-<li>VPN网络配置导致连接受阻</li>
-<li>代理设置不正确或缺失</li>
-<li>SSL&#x2F;TLS证书或代理对HTTPS连接的处理问题</li>
-</ol>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="1-检查IDEA代理配置"><a href="#1-检查IDEA代理配置" class="headerlink" title="1. 检查IDEA代理配置"></a>1. 检查IDEA代理配置</h3><ol>
-<li>打开 <code>File -&gt; Settings -&gt; Appearance and Behavior -&gt; System Settings -&gt; HTTP Proxy</code></li>
-<li>选择”Auto-detect proxy settings”（自动检测代理设置）</li>
-<li>或设置”Automatic proxy configuration URL”（自动代理配置URL）</li>
-<li>应用并重启IDEA</li>
-<li>如图：<img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501066694.png" alt="代理设置"></li>
-</ol>
-<h3 id="2-协议更改"><a href="#2-协议更改" class="headerlink" title="2. 协议更改"></a>2. 协议更改</h3><ul>
-<li>尝试将 <code>https://start.spring.io</code> 改为 <code>http://start.spring.io</code> 访问</li>
-<li>某些网络环境下，HTTP协议可绕过SSL&#x2F;代理相关问题</li>
-</ul>
-<h3 id="3-检查本地网络环境"><a href="#3-检查本地网络环境" class="headerlink" title="3. 检查本地网络环境"></a>3. 检查本地网络环境</h3><ul>
-<li>关闭本地防火墙&#x2F;杀毒软件后重试</li>
-<li>断开VPN后重试</li>
-</ul>
-<h3 id="4-其他可能性"><a href="#4-其他可能性" class="headerlink" title="4. 其他可能性"></a>4. 其他可能性</h3><ul>
-<li>历史上 initializr 项目曾有相关 <a target="_blank" rel="noopener" href="https://github.com/spring-io/initializr/issues/267">issue</a>，但目前服务稳定</li>
-<li>若上述方法无效，可尝试命令行或浏览器直接访问 start.spring.io，排查本地网络问题</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本次连接问题主要由IntelliJ IDEA的HTTP代理配置不正确导致。通过在IDEA中自动检测并配置代理设置，问题得以解决。同时，在特定网络环境下，尝试HTTP协议而非HTTPS或检查本地防火墙&#x2F;VPN也是有效的排查方向。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/07/09/IntelliJIDEASpringInitializrConnection/" data-id="cmd4sqr2g0000wwijfmvba7dx" data-title="IntelliJ IDEA Spring Initializr连接被拒绝问题解决方案" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IntelliJ-IDEA/" rel="tag">IntelliJ IDEA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Initializr/" rel="tag">Spring Initializr</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90/" rel="tag">错误分析</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-Java版本兼容性与Maven依赖问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/07/08/Java%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E4%B8%8EMaven%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" class="article-date">
@@ -256,7 +176,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/07/08/Java%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E4%B8%8EMaven%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" data-id="cmd4sqr2k0001wwijgx872k2s" data-title="Java版本兼容性与Maven依赖问题全解析" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/07/08/Java%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E4%B8%8EMaven%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" data-id="cmd4sv8jg00017gijcl2ldprh" data-title="Java版本兼容性与Maven依赖问题全解析" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -372,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/07/07/%E8%A7%A3%E5%86%B3%E4%B8%AA%E4%BA%BA%E5%9C%A8intellij%E4%B8%AD%E9%83%A8%E7%BD%B2maven%E7%9A%84pom%E6%96%87%E4%BB%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/" data-id="cmd4sqr2t000ywwij5alu8drc" data-title="解决个人在 IntelliJ 中部署 Maven 的 POM 文件出现的错误" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/07/07/%E8%A7%A3%E5%86%B3%E4%B8%AA%E4%BA%BA%E5%9C%A8intellij%E4%B8%AD%E9%83%A8%E7%BD%B2maven%E7%9A%84pom%E6%96%87%E4%BB%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/" data-id="cmd4sv8jk00057gijgr7ufzqw" data-title="解决个人在 IntelliJ 中部署 Maven 的 POM 文件出现的错误" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -448,11 +368,91 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/07/07/hello-world/" data-id="cmd4sqr2s000vwwijadm2g094" data-title="Welcome to My Tech Blog" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/07/07/hello-world/" data-id="cmd4sv8jj00047gijg3zp7j54" data-title="Welcome to My Tech Blog" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-IntelliJIDEASpringInitializrConnection" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/16/IntelliJIDEASpringInitializrConnection/" class="article-date">
+  <time class="dt-published" datetime="2024-07-16T04:00:00.000Z" itemprop="datePublished">2024-07-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a>►<a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/">Spring</a>►<a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/IDEA/">IDEA</a>►<a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/IDEA/%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/">网络问题</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/07/16/IntelliJIDEASpringInitializrConnection/">IntelliJ IDEA Spring Initializr连接被拒绝问题解决方案</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在使用IntelliJ IDEA中的Spring Initializr创建项目时，遇到以下错误提示：</p>
+<blockquote>
+<p>‘<a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io</a>‘ 的初始化失败<br>Cannot download ‘<a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io</a>‘: Connection refused: getsockopt</p>
+</blockquote>
+<p>IDEA提示需要检查URL、网络和代理设置。</p>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><h3 id="错误类型分析"><a href="#错误类型分析" class="headerlink" title="错误类型分析"></a>错误类型分析</h3><ul>
+<li>“Connection refused: getsockopt” 表示客户端（IntelliJ IDEA）尝试连接服务器（start.spring.io）时，服务器主动拒绝了连接。</li>
+<li>这通常不是服务器宕机，而是中间存在阻碍，如防火墙、代理问题，或目标端口未开放。</li>
+<li><img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501025386.png" alt="错误提示"></li>
+</ul>
+<h3 id="常见原因"><a href="#常见原因" class="headerlink" title="常见原因"></a>常见原因</h3><ol>
+<li>本地防火墙或杀毒软件阻止了IDEA的出站连接</li>
+<li>VPN网络配置导致连接受阻</li>
+<li>代理设置不正确或缺失</li>
+<li>SSL&#x2F;TLS证书或代理对HTTPS连接的处理问题</li>
+</ol>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="1-检查IDEA代理配置"><a href="#1-检查IDEA代理配置" class="headerlink" title="1. 检查IDEA代理配置"></a>1. 检查IDEA代理配置</h3><ol>
+<li>打开 <code>File -&gt; Settings -&gt; Appearance and Behavior -&gt; System Settings -&gt; HTTP Proxy</code></li>
+<li>选择”Auto-detect proxy settings”（自动检测代理设置）</li>
+<li>或设置”Automatic proxy configuration URL”（自动代理配置URL）</li>
+<li>应用并重启IDEA</li>
+<li>如图：<img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/IntelliJ-IDEA-Spring-Initializr-Connection-Refused/1752501066694.png" alt="代理设置"></li>
+</ol>
+<h3 id="2-协议更改"><a href="#2-协议更改" class="headerlink" title="2. 协议更改"></a>2. 协议更改</h3><ul>
+<li>尝试将 <code>https://start.spring.io</code> 改为 <code>http://start.spring.io</code> 访问</li>
+<li>某些网络环境下，HTTP协议可绕过SSL&#x2F;代理相关问题</li>
+</ul>
+<h3 id="3-检查本地网络环境"><a href="#3-检查本地网络环境" class="headerlink" title="3. 检查本地网络环境"></a>3. 检查本地网络环境</h3><ul>
+<li>关闭本地防火墙&#x2F;杀毒软件后重试</li>
+<li>断开VPN后重试</li>
+</ul>
+<h3 id="4-其他可能性"><a href="#4-其他可能性" class="headerlink" title="4. 其他可能性"></a>4. 其他可能性</h3><ul>
+<li>历史上 initializr 项目曾有相关 <a target="_blank" rel="noopener" href="https://github.com/spring-io/initializr/issues/267">issue</a>，但目前服务稳定</li>
+<li>若上述方法无效，可尝试命令行或浏览器直接访问 start.spring.io，排查本地网络问题</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本次连接问题主要由IntelliJ IDEA的HTTP代理配置不正确导致。通过在IDEA中自动检测并配置代理设置，问题得以解决。同时，在特定网络环境下，尝试HTTP协议而非HTTPS或检查本地防火墙&#x2F;VPN也是有效的排查方向。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/16/IntelliJIDEASpringInitializrConnection/" data-id="cmd4sv8jc00007gijg2mj8zyb" data-title="IntelliJ IDEA Spring Initializr连接被拒绝问题解决方案" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IntelliJ-IDEA/" rel="tag">IntelliJ IDEA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Initializr/" rel="tag">Spring Initializr</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90/" rel="tag">错误分析</a></li></ul>
 
     </footer>
   </div>
@@ -595,7 +595,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/07/14/%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE%E5%AF%BC%E8%87%B4%E7%9A%84Git%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E4%B8%8E%E8%A7%A3%E5%86%B3/" data-id="cmd4sqr2r000uwwij3pfqas9a" data-title="代理配置导致的Git连接问题分析与解决" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2023/07/14/%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE%E5%AF%BC%E8%87%B4%E7%9A%84Git%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E4%B8%8E%E8%A7%A3%E5%86%B3/" data-id="cmd4sv8jt001g7gij1l60eekv" data-title="代理配置导致的Git连接问题分析与解决" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -648,7 +648,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li></ul>
     </div>
   </div>
 
@@ -661,10 +661,6 @@
       <ul>
         
           <li>
-            <a href="/2025/07/09/IntelliJIDEASpringInitializrConnection/">IntelliJ IDEA Spring Initializr连接被拒绝问题解决方案</a>
-          </li>
-        
-          <li>
             <a href="/2025/07/08/Java%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E4%B8%8EMaven%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/">Java版本兼容性与Maven依赖问题全解析</a>
           </li>
         
@@ -674,6 +670,10 @@
         
           <li>
             <a href="/2025/07/07/hello-world/">Welcome to My Tech Blog</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/16/IntelliJIDEASpringInitializrConnection/">IntelliJ IDEA Spring Initializr连接被拒绝问题解决方案</a>
           </li>
         
           <li>
