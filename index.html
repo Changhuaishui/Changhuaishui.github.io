@@ -71,6 +71,72 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-笔记本蓝牙连接问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/07/18/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2025-07-18T07:45:03.791Z" itemprop="datePublished">2025-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="蓝牙失联–Win笔记本“代码43”错误"><a href="#蓝牙失联–Win笔记本“代码43”错误" class="headerlink" title="蓝牙失联–Win笔记本“代码43”错误"></a>蓝牙失联–Win笔记本“代码43”错误</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>问题表述：笔记本开启节能模式或息屏后，蓝牙功能突然“消失”不见，设备管理器里显示蓝牙模块带感叹号，并提示“由于该设备有问题，Windows 已将其停止。(代码 43)”本文将分享最近解决这一问题的经验，快速恢复蓝牙功能，无需重启电脑！</p>
+<h2 id="问题发现：息屏后蓝牙失效"><a href="#问题发现：息屏后蓝牙失效" class="headerlink" title="问题发现：息屏后蓝牙失效"></a>问题发现：息屏后蓝牙失效</h2><p>最近，我的Windows笔记本电脑遇到了一个令人头疼的问题。为了省电，我通常会开启系统的节能模式。然而，我注意到一个奇怪的现象：当笔记本息屏一段时间后，或者从休眠状态唤醒时，原本正常工作的蓝牙功能竟然“消失”了！</p>
+<p>打开Windows设置界面，原本应该有的蓝牙开关和选项不见踪影，就好像笔记本电脑根本没有蓝牙模块一样。这导致我所有的蓝牙外设，如蓝牙耳机、鼠标等，都无法连接，严重影响了日常使用。</p>
+<h2 id="问题定位：“代码43”错误浮出水面"><a href="#问题定位：“代码43”错误浮出水面" class="headerlink" title="问题定位：“代码43”错误浮出水面"></a>问题定位：“代码43”错误浮出水面</h2><p>面对蓝牙的“人间蒸发”，我首先想到了去设备管理器查看。</p>
+<ol>
+<li>按下 <code>Win + X</code> 键，选择 <code>设备管理器</code>。</li>
+<li>展开 <code>蓝牙</code> 类别。</li>
+</ol>
+<p>果然，在蓝牙设备列表中，我发现我的蓝牙适配器（显示为“英特尔(R) 无线 Bluetooth(R)”）旁边显示着一个<strong>黄色的感叹号</strong></p>
+<p><img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/%E8%93%9D%E7%89%99%E5%A4%B1%E6%95%88%E6%88%AA%E5%9B%BE.png" alt="设备管理器中的蓝牙设备"><br><em>图1：设备管理器中带有感叹号的蓝牙设备</em></p>
+<p>双击该设备，查看其属性，在“常规”选项卡下，我看到了这样的提示信息：</p>
+<blockquote>
+<p><strong>“由于该设备有问题，Windows 已将其停止。 (代码 43)”</strong></p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/%E8%93%9D%E7%89%99%E6%81%A2%E5%A4%8D%E6%88%AA%E5%9B%BE.png" alt="设备管理器中的蓝牙设备列表"><br><em>图2：蓝牙设备列表恢复后</em></p>
+<p>这个“代码43”错误清晰地指出了问题的根源：Windows系统检测到蓝牙设备存在故障，并为了避免更深层的问题而将其禁用了。而我发现，这个错误常常在节能模式下息屏或休眠后出现，让我联想到可能是电源管理策略导致了蓝牙模块的异常。</p>
+<h2 id="解决过程：禁用再启用，轻松修复！"><a href="#解决过程：禁用再启用，轻松修复！" class="headerlink" title="解决过程：禁用再启用，轻松修复！"></a>解决过程：禁用再启用，轻松修复！</h2><p>在排除了硬件彻底损坏的可能性后（因为重启电脑通常可以恢复），我决定尝试一种不需要重启电脑的方法。</p>
+<p><strong>修复步骤如下：</strong></p>
+<ol>
+<li>继续保持在 <strong>设备管理器</strong> 界面。</li>
+<li>在 <code>蓝牙</code> 类别下，找到带有黄色感叹号的蓝牙适配器（例如：“英特尔(R) 无线 Bluetooth(R)”）。</li>
+<li><strong>右键点击</strong> 该蓝牙设备。</li>
+<li>在弹出的菜单中，选择 <strong><code>禁用设备</code></strong>。<ul>
+<li>此时系统会提示你“禁用此设备会使其停止工作。确实要禁用它吗？”，点击 <strong><code>是</code></strong> 确认。</li>
+</ul>
+</li>
+<li>等待几秒钟，你会发现该蓝牙设备的图标上会多出一个向下的箭头，表示它已被禁用。</li>
+<li>再次 <strong>右键点击</strong> 该蓝牙设备。</li>
+<li>在弹出的菜单中，选择 <strong><code>启用设备</code></strong>。</li>
+</ol>
+<p>完成上述操作后，奇迹发生了！那个烦人的黄色感叹号消失了，蓝牙设备恢复了正常工作状态。随即，Windows设置中的蓝牙开关也重新出现，我的蓝牙外设也能够正常连接使用了。</p>
+<h2 id="经验总结与思考"><a href="#经验总结与思考" class="headerlink" title="经验总结与思考"></a>经验总结与思考</h2><p>这次解决蓝牙问题的过程让我意识到：</p>
+<ul>
+<li><strong>“代码43”错误不一定意味着硬件损坏。</strong> 它更可能表示设备或驱动程序处于异常状态。</li>
+<li><strong>电源管理设置可能是幕后黑手。</strong> 节能模式下，系统可能会过度优化，导致某些设备（如蓝牙模块）在恢复时未能正确初始化。</li>
+<li><strong>“禁用再启用”。</strong> 这种方法相当于给设备进行了一次“软重启”，通常能够解决驱动程序或设备状态的临时性故障，而且最重要的是，它不需要重启整个电脑，非常适合有重要任务在运行不能关机的情况。</li>
+</ul>
+<p>希望这篇博客能帮到你！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/07/18/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/" data-id="cmd8iw5la000ai0ij42az1zdu" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-个人使用部署Gemini-cli心得" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/07/18/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/" class="article-date">
@@ -146,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/07/18/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/" data-id="cmd89njt10005hoij4mrw5bee" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/07/18/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/" data-id="cmd8iw5l80005i0ij36ii7rak" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -263,7 +329,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/07/08/Java%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E4%B8%8EMaven%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" data-id="cmd89njsx0001hoij7kla0zkd" data-title="Java版本兼容性与Maven依赖问题全解析" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/07/08/Java%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E4%B8%8EMaven%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" data-id="cmd8iw5l30001i0ijhokyc9jn" data-title="Java版本兼容性与Maven依赖问题全解析" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -379,7 +445,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/07/07/%E8%A7%A3%E5%86%B3%E4%B8%AA%E4%BA%BA%E5%9C%A8intellij%E4%B8%AD%E9%83%A8%E7%BD%B2maven%E7%9A%84pom%E6%96%87%E4%BB%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/" data-id="cmd89njt8001fhoijbbdkfbfh" data-title="解决个人在 IntelliJ 中部署 Maven 的 POM 文件出现的错误" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/07/07/%E8%A7%A3%E5%86%B3%E4%B8%AA%E4%BA%BA%E5%9C%A8intellij%E4%B8%AD%E9%83%A8%E7%BD%B2maven%E7%9A%84pom%E6%96%87%E4%BB%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/" data-id="cmd8iw5lk001qi0ij6i5h3qqd" data-title="解决个人在 IntelliJ 中部署 Maven 的 POM 文件出现的错误" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -456,7 +522,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/07/07/hello-world/" data-id="cmd89njt00004hoija6r1d0cb" data-title="Welcome to My Tech Blog" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/07/07/hello-world/" data-id="cmd8iw5l70004i0ijbntfebbx" data-title="Welcome to My Tech Blog" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -536,7 +602,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/16/IntelliJIDEASpringInitializrConnection/" data-id="cmd89njss0000hoijh9cxg7hv" data-title="IntelliJ IDEA Spring Initializr连接被拒绝问题解决方案" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/07/16/IntelliJIDEASpringInitializrConnection/" data-id="cmd8iw5ky0000i0ij56cgc1uf" data-title="IntelliJ IDEA Spring Initializr连接被拒绝问题解决方案" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -628,7 +694,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/16/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%BC%95%E7%94%A8GitHub%E4%BB%93%E5%BA%93%E5%9B%BE%E7%89%87%E5%88%B0Hexo%E5%8D%9A%E5%AE%A2/" data-id="cmd89njt8001ehoij6ttd8j2x" data-title="教程：如何正确引用GitHub仓库图片到Hexo博客" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/07/16/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%BC%95%E7%94%A8GitHub%E4%BB%93%E5%BA%93%E5%9B%BE%E7%89%87%E5%88%B0Hexo%E5%8D%9A%E5%AE%A2/" data-id="cmd8iw5l90008i0ijbgkdg6pg" data-title="教程：如何正确引用GitHub仓库图片到Hexo博客" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -772,7 +838,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/07/14/%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE%E5%AF%BC%E8%87%B4%E7%9A%84Git%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E4%B8%8E%E8%A7%A3%E5%86%B3/" data-id="cmd89njt20006hoij3tt46mrh" data-title="代理配置导致的Git连接问题分析与解决" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2023/07/14/%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE%E5%AF%BC%E8%87%B4%E7%9A%84Git%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E4%B8%8E%E8%A7%A3%E5%86%B3/" data-id="cmd8iw5l80006i0ijaevv4dh5" data-title="代理配置导致的Git连接问题分析与解决" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -838,6 +904,10 @@
       <ul>
         
           <li>
+            <a href="/2025/07/18/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2025/07/18/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/">(no title)</a>
           </li>
         
@@ -851,10 +921,6 @@
         
           <li>
             <a href="/2025/07/07/hello-world/">Welcome to My Tech Blog</a>
-          </li>
-        
-          <li>
-            <a href="/2024/07/16/IntelliJIDEASpringInitializrConnection/">IntelliJ IDEA Spring Initializr连接被拒绝问题解决方案</a>
           </li>
         
       </ul>
