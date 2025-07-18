@@ -19,27 +19,30 @@
   <meta name="author" content="chenji">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前言在撰写Hexo博客时，如何稳定、高效地管理和引用图片是一个常见问题。许多博主选择使用GitHub作为免费的图床，但这其中有一些常见的“坑”，比如图片链接失效、图片不显示等。本文将详细总结从创建仓库到在Markdown中正确引用图片，再到最终发布的完整流程和注意事项。 流程概览 创建一个公开的GitHub仓库作为图床。 上传图片文件到该仓库。 获取图片的正确链接（这是最关键的一步！）。 在Mar">
+    <meta name="description" content="告别蓝牙失联！Win笔记本”代码43”错误自救指南摘要问题表述：笔记本开启节能模式或息屏后，蓝牙功能突然“消失”不见，设备管理器里显示蓝牙模块带感叹号，并提示“由于该设备有问题，Windows 已将其停止。(代码 43)”本文将分享最近解决这一问题的经验，快速恢复蓝牙功能，无需重启电脑！ 问题发现：息屏后蓝牙失效最近，我的Windows笔记本电脑遇到了一个令人头疼的问题。为了省电，我通常会开启系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="教程：如何正确引用GitHub仓库图片到Hexo博客">
-<meta property="og:url" content="http://example.com/2024/07/16/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%BC%95%E7%94%A8GitHub%E4%BB%93%E5%BA%93%E5%9B%BE%E7%89%87%E5%88%B0Hexo%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="告别蓝牙失联！Win笔记本&quot;代码43&quot;错误自救指南">
+<meta property="og:url" content="http://example.com/2025/08/10/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="解决个人在intellij中部署maven的pom文件出现的错误">
-<meta property="og:description" content="前言在撰写Hexo博客时，如何稳定、高效地管理和引用图片是一个常见问题。许多博主选择使用GitHub作为免费的图床，但这其中有一些常见的“坑”，比如图片链接失效、图片不显示等。本文将详细总结从创建仓库到在Markdown中正确引用图片，再到最终发布的完整流程和注意事项。 流程概览 创建一个公开的GitHub仓库作为图床。 上传图片文件到该仓库。 获取图片的正确链接（这是最关键的一步！）。 在Mar">
+<meta property="og:description" content="告别蓝牙失联！Win笔记本”代码43”错误自救指南摘要问题表述：笔记本开启节能模式或息屏后，蓝牙功能突然“消失”不见，设备管理器里显示蓝牙模块带感叹号，并提示“由于该设备有问题，Windows 已将其停止。(代码 43)”本文将分享最近解决这一问题的经验，快速恢复蓝牙功能，无需重启电脑！ 问题发现：息屏后蓝牙失效最近，我的Windows笔记本电脑遇到了一个令人头疼的问题。为了省电，我通常会开启系统">
 <meta property="og:locale">
-<meta property="article:published_time" content="2024-07-15T17:00:00.000Z">
-<meta property="article:modified_time" content="2025-07-18T03:34:46.731Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/%E8%93%9D%E7%89%99%E5%A4%B1%E6%95%88%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/%E8%93%9D%E7%89%99%E6%81%A2%E5%A4%8D%E6%88%AA%E5%9B%BE.png">
+<meta property="article:published_time" content="2025-08-10T01:15:00.000Z">
+<meta property="article:modified_time" content="2025-07-18T11:32:30.907Z">
 <meta property="article:author" content="chenji">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="GitHub">
-<meta property="article:tag" content="Markdown">
-<meta property="article:tag" content="图片引用">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="蓝牙">
+<meta property="article:tag" content="故障排除">
+<meta property="article:tag" content="代码43">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/%E8%93%9D%E7%89%99%E5%A4%B1%E6%95%88%E6%88%AA%E5%9B%BE.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>教程：如何正确引用GitHub仓库图片到Hexo博客 - 解决个人在intellij中部署maven的pom文件出现的错误</title>
+  <title>告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南 - 解决个人在intellij中部署maven的pom文件出现的错误</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -205,7 +208,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="教程：如何正确引用GitHub仓库图片到Hexo博客"></span>
+            <span id="subtitle" data-typed-text="告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南"></span>
           
         </div>
 
@@ -216,8 +219,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-16 01:00" pubdate>
-          July 16, 2024 am
+        <time datetime="2025-08-10 09:15" pubdate>
+          August 10, 2025 am
         </time>
       </span>
     
@@ -228,7 +231,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k wörter
+          1k wörter
         
       </span>
     
@@ -239,7 +242,7 @@
         
         
         
-          12 minuten
+          9 minuten
         
       </span>
     
@@ -276,59 +279,49 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">教程：如何正确引用GitHub仓库图片到Hexo博客</h1>
+            <h1 id="seo-header">告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在撰写Hexo博客时，如何稳定、高效地管理和引用图片是一个常见问题。许多博主选择使用GitHub作为免费的图床，但这其中有一些常见的“坑”，比如图片链接失效、图片不显示等。本文将详细总结从创建仓库到在Markdown中正确引用图片，再到最终发布的完整流程和注意事项。</p>
-<h2 id="流程概览"><a href="#流程概览" class="headerlink" title="流程概览"></a>流程概览</h2><ol>
-<li><strong>创建</strong>一个<strong>公开</strong>的GitHub仓库作为图床。</li>
-<li><strong>上传</strong>图片文件到该仓库。</li>
-<li><strong>获取</strong>图片的<strong>正确链接</strong>（这是最关键的一步！）。</li>
-<li>在Markdown文章中<strong>引用</strong>图片链接。</li>
-<li><strong>部署</strong>您的Hexo博客。</li>
-</ol>
-<hr>
-<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><h3 id="第一步：创建公开的GitHub仓库"><a href="#第一步：创建公开的GitHub仓库" class="headerlink" title="第一步：创建公开的GitHub仓库"></a>第一步：创建公开的GitHub仓库</h3><p>为了让所有人都能访问到您的图片，存放图片的GitHub仓库<strong>必须是公开的（Public）</strong>。如果是私有仓库（Private），则只有您自己登录后才能看到图片，您的读者将看到一个破碎的图片图标🏞️。</p>
-<h3 id="第二步：上传图片到仓库"><a href="#第二步：上传图片到仓库" class="headerlink" title="第二步：上传图片到仓库"></a>第二步：上传图片到仓库</h3><p>您可以直接在GitHub网页上或者使用Git客户端将图片文件上传到您的图床仓库中。建议在仓库里创建一个专门的文件夹（如 <code>images</code> 或 <code>assets</code>）来存放图片，方便管理。</p>
-<h3 id="第三步：获取正确的图片URL（核心）"><a href="#第三步：获取正确的图片URL（核心）" class="headerlink" title="第三步：获取正确的图片URL（核心）"></a>第三步：获取正确的图片URL（核心）</h3><p>这是最容易出错的地方。我们来深入理解一下不同链接之间的区别。</p>
-<h4 id="链接辨析：网页-vs-原始文件"><a href="#链接辨析：网页-vs-原始文件" class="headerlink" title="链接辨析：网页 vs 原始文件"></a>链接辨析：网页 vs 原始文件</h4><h5 id="1-错误的链接：github-com-网页链接"><a href="#1-错误的链接：github-com-网页链接" class="headerlink" title="1. 错误的链接：github.com 网页链接"></a>1. 错误的链接：<code>github.com</code> 网页链接</h5><ul>
-<li><strong>格式</strong>: <code>https://github.com/USERNAME/REPO/blob/main/images/demo.png</code></li>
-<li><strong>这是什么</strong>: 当你在浏览器中打开这个链接，你看到的不仅仅是图片，而是一个完整的<strong>GitHub网页</strong>，它包含了导航栏、文件列表、代码操作按钮等元素，您的图片只是内嵌在其中。</li>
-<li><strong>为何错误</strong>: 在Markdown中使用 <code>![]()</code> 语法时，它需要一个纯粹的图片文件。你给它一个完整的HTML网页，浏览器无法将其渲染为图片，因此链接会失效。</li>
-<li><strong>一个比喻</strong>: 这就像想在相框里放一张照片，却把整个照相馆（连同前台、沙发和摄影师）都硬塞了进去，相框当然装不下。</li>
-</ul>
-<h5 id="2-正确的链接：raw-githubusercontent-com-原始文件链接"><a href="#2-正确的链接：raw-githubusercontent-com-原始文件链接" class="headerlink" title="2. 正确的链接：raw.githubusercontent.com 原始文件链接"></a>2. 正确的链接：<code>raw.githubusercontent.com</code> 原始文件链接</h5><ul>
-<li><strong>格式</strong>: <code>https://raw.githubusercontent.com/USERNAME/REPO/main/images/demo.png</code></li>
-<li><strong>这是什么</strong>: 这是GitHub专门用来提供**文件原始数据（Raw Content）**的CDN服务器地址。访问这个链接，返回的是没有任何多余元素的、纯粹的图片文件数据。</li>
-<li><strong>为何正确</strong>: 这个链接直接指向图片文件本身，浏览器可以毫无障碍地识别并渲染它。</li>
-<li><strong>继续比喻</strong>: 这个链接相当于直接把<strong>照片本身</strong>递给了相框，完美匹配。</li>
-</ul>
-<h4 id="技巧：如何快速获取正确的图片链接"><a href="#技巧：如何快速获取正确的图片链接" class="headerlink" title="技巧：如何快速获取正确的图片链接"></a>技巧：如何快速获取正确的图片链接</h4><p>你不需要手动修改URL。GitHub提供了一个非常简单的方法来获取正确的原始链接，这是一个百试百灵的技巧：</p>
+                <h1 id="告别蓝牙失联！Win笔记本”代码43”错误自救指南"><a href="#告别蓝牙失联！Win笔记本”代码43”错误自救指南" class="headerlink" title="告别蓝牙失联！Win笔记本”代码43”错误自救指南"></a>告别蓝牙失联！Win笔记本”代码43”错误自救指南</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>问题表述：笔记本开启节能模式或息屏后，蓝牙功能突然“消失”不见，设备管理器里显示蓝牙模块带感叹号，并提示“由于该设备有问题，Windows 已将其停止。(代码 43)”本文将分享最近解决这一问题的经验，快速恢复蓝牙功能，无需重启电脑！</p>
+<h2 id="问题发现：息屏后蓝牙失效"><a href="#问题发现：息屏后蓝牙失效" class="headerlink" title="问题发现：息屏后蓝牙失效"></a>问题发现：息屏后蓝牙失效</h2><p>最近，我的Windows笔记本电脑遇到了一个令人头疼的问题。为了省电，我通常会开启系统的节能模式。然而，我注意到一个奇怪的现象：当笔记本息屏一段时间后，或者从休眠状态唤醒时，原本正常工作的蓝牙功能竟然“消失”了！</p>
+<p>打开Windows设置界面，原本应该有的蓝牙开关和选项不见踪影，就好像笔记本电脑根本没有蓝牙模块一样。这导致我所有的蓝牙外设，如蓝牙耳机、鼠标等，都无法连接，严重影响了日常使用。</p>
+<h2 id="问题定位：“代码43”错误浮出水面"><a href="#问题定位：“代码43”错误浮出水面" class="headerlink" title="问题定位：“代码43”错误浮出水面"></a>问题定位：“代码43”错误浮出水面</h2><p>面对蓝牙的“人间蒸发”，我首先想到了去设备管理器查看。</p>
 <ol>
-<li><strong>第一步：在GitHub上找到您的图片文件</strong><br>打开您的图床仓库，并导航到您想要引用的图片文件页面。</li>
-<li><strong>第二步：找到 “Download” 按钮</strong><br>在图片预览的右上方，你会看到几个按钮，其中有一个是 <strong>“Download”</strong>（下载）按钮。</li>
-<li><strong>第三步：右键复制链接（最关键）</strong><br>将鼠标光标移动到 <strong>“Download”</strong> 按钮上，然后点击鼠标<strong>右键</strong>，在弹出的菜单中选择 <strong>“复制链接地址”</strong> (Copy Link Address) 或类似的选项。</li>
-<li><strong>第四步：粘贴到Markdown</strong><br>现在你的剪贴板里的链接就是格式为 <code>https://raw.githubusercontent.com/...</code> 的正确链接了。直接将它粘贴到你的Markdown文档中即可！</li>
+<li>按下 <code>Win + X</code> 键，选择 <code>设备管理器</code>。</li>
+<li>展开 <code>蓝牙</code> 类别。</li>
 </ol>
-<p>这样操作，既快速又保证100%正确，再也不用担心链接引用错误的问题了。</p>
-<h3 id="第四步：在Markdown中引用图片"><a href="#第四步：在Markdown中引用图片" class="headerlink" title="第四步：在Markdown中引用图片"></a>第四步：在Markdown中引用图片</h3><p>使用标准的Markdown语法即可：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">![<span class="hljs-string">这里是图片的描述文字</span>](<span class="hljs-link">https://raw.githubusercontent.com/USERNAME/REPO/main/images/demo.png</span>)<br></code></pre></td></tr></table></figure>
-
-<h3 id="第五步：部署您的Hexo博客"><a href="#第五步：部署您的Hexo博客" class="headerlink" title="第五步：部署您的Hexo博客"></a>第五步：部署您的Hexo博客</h3><p>在确认文章和图片链接无误后，执行标准的部署流程：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 1. 清理旧缓存</span><br>hexo clean<br><br><span class="hljs-comment"># 2. 生成新的静态文件</span><br>hexo g<br><br><span class="hljs-comment"># 3. 部署到您的网站</span><br>hexo d<br></code></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="注意事项与问题排查"><a href="#注意事项与问题排查" class="headerlink" title="注意事项与问题排查"></a>注意事项与问题排查</h2><ol>
-<li><strong>仓库必须公开</strong>：再次强调，这是图片能否被外部访问的前提。</li>
-<li><strong>文章日期问题</strong>：如果您发现某篇文章在本地存在，但部署后网站上没有显示，请检查文章头部的 <code>date</code>字段。如果日期是一个未来的时间，Hexo默认是不会生成这篇文章的。将其修改为当前或过去的时间即可。</li>
-<li><strong>缓存问题</strong>：在排查问题时，如果确认修改无误但网站仍未更新，请务必<strong>强制刷新</strong>您的浏览器缓存（通常是 <code>Ctrl + Shift + R</code> 或 <code>Cmd + Shift + R</code>）。</li>
-<li><strong>检查URL拼写</strong>：一个字母或符号的错误都会导致链接失效。请仔细核对您的用户名、仓库名、分支名（通常是 <code>main</code>）和文件路径。</li>
-<li><strong>直接访问URL测试</strong>：将最终使用的图片URL直接粘贴到浏览器地址栏并访问。如果图片能正常显示，说明链接本身是有效的。</li>
-<li>GitHub 的原始图片链接格式有误。在 GitHub 中，当你要直接访问原始图片时，URL 中的 “blob&#x2F;main” 应该改为 “main。</li>
+<p>果然，在蓝牙设备列表中，我发现我的蓝牙适配器（显示为“英特尔(R) 无线 Bluetooth(R)”）旁边显示着一个<strong>黄色的感叹号</strong></p>
+<p><img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/%E8%93%9D%E7%89%99%E5%A4%B1%E6%95%88%E6%88%AA%E5%9B%BE.png" srcset="/img/loading.gif" lazyload alt="设备管理器中的蓝牙设备"><br><em>图1：设备管理器中带有感叹号的蓝牙设备</em></p>
+<p>双击该设备，查看其属性，在“常规”选项卡下，我看到了这样的提示信息：</p>
+<blockquote>
+<p><strong>“由于该设备有问题，Windows 已将其停止。 (代码 43)”</strong></p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/%E8%93%9D%E7%89%99%E6%81%A2%E5%A4%8D%E6%88%AA%E5%9B%BE.png" srcset="/img/loading.gif" lazyload alt="设备管理器中的蓝牙设备列表"><br><em>图2：蓝牙设备列表恢复后</em></p>
+<p>这个“代码43”错误清晰地指出了问题的根源：Windows系统检测到蓝牙设备存在故障，并为了避免更深层的问题而将其禁用了。而我发现，这个错误常常在节能模式下息屏或休眠后出现，让我联想到可能是电源管理策略导致了蓝牙模块的异常。</p>
+<h2 id="解决过程：禁用再启用，轻松修复！"><a href="#解决过程：禁用再启用，轻松修复！" class="headerlink" title="解决过程：禁用再启用，轻松修复！"></a>解决过程：禁用再启用，轻松修复！</h2><p>在排除了硬件彻底损坏的可能性后（因为重启电脑通常可以恢复），我决定尝试一种不需要重启电脑的方法。</p>
+<p><strong>修复步骤如下：</strong></p>
+<ol>
+<li>继续保持在 <strong>设备管理器</strong> 界面。</li>
+<li>在 <code>蓝牙</code> 类别下，找到带有黄色感叹号的蓝牙适配器（例如：“英特尔(R) 无线 Bluetooth(R)”）。</li>
+<li><strong>右键点击</strong> 该蓝牙设备。</li>
+<li>在弹出的菜单中，选择 <strong><code>禁用设备</code></strong>。<ul>
+<li>此时系统会提示你“禁用此设备会使其停止工作。确实要禁用它吗？”，点击 <strong><code>是</code></strong> 确认。</li>
+</ul>
+</li>
+<li>等待几秒钟，你会发现该蓝牙设备的图标上会多出一个向下的箭头，表示它已被禁用。</li>
+<li>再次 <strong>右键点击</strong> 该蓝牙设备。</li>
+<li>在弹出的菜单中，选择 <strong><code>启用设备</code></strong>。</li>
 </ol>
-<p>希望这篇总结能帮助您彻底解决Hexo博客中的图片引用问题！</p>
+<p>完成上述操作后，奇迹发生了！那个烦人的黄色感叹号消失了，蓝牙设备恢复了正常工作状态。随即，Windows设置中的蓝牙开关也重新出现，我的蓝牙外设也能够正常连接使用了。</p>
+<h2 id="经验总结与思考"><a href="#经验总结与思考" class="headerlink" title="经验总结与思考"></a>经验总结与思考</h2><p>这次解决蓝牙问题的过程让我意识到：</p>
+<ul>
+<li><strong>“代码43”错误不一定意味着硬件损坏。</strong> 它更可能表示设备或驱动程序处于异常状态。</li>
+<li><strong>电源管理设置可能是幕后黑手。</strong> 节能模式下，系统可能会过度优化，导致某些设备（如蓝牙模块）在恢复时未能正确初始化。</li>
+<li><strong>“禁用再启用”。</strong> 这种方法相当于给设备进行了一次“软重启”，通常能够解决驱动程序或设备状态的临时性故障，而且最重要的是，它不需要重启整个电脑，非常适合有重要任务在运行不能关机的情况。</li>
+</ul>
+<p>希望这篇博客能帮到你！</p>
 
                 
               </div>
@@ -347,8 +340,15 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" class="category-chain-item">博客教程</a>
+  <a href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/" class="category-chain-item">技术教程</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/%E7%A1%AC%E4%BB%B6%E9%97%AE%E9%A2%98/" class="category-chain-item">硬件问题</a>
+  
+  
+
   
 
       </span>
@@ -362,13 +362,13 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
+        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
       
-        <a href="/tags/GitHub/" class="print-no-link">#GitHub</a>
+        <a href="/tags/%E8%93%9D%E7%89%99/" class="print-no-link">#蓝牙</a>
       
-        <a href="/tags/Markdown/" class="print-no-link">#Markdown</a>
+        <a href="/tags/%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4/" class="print-no-link">#故障排除</a>
       
-        <a href="/tags/%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/" class="print-no-link">#图片引用</a>
+        <a href="/tags/%E4%BB%A3%E7%A0%8143/" class="print-no-link">#代码43</a>
       
     </div>
   
@@ -380,8 +380,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>教程：如何正确引用GitHub仓库图片到Hexo博客</div>
-      <div>http://example.com/2024/07/16/如何正确引用GitHub仓库图片到Hexo博客/</div>
+      <div>告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南</div>
+      <div>http://example.com/2025/08/10/笔记本蓝牙连接问题/</div>
     </div>
     <div class="license-meta">
       
@@ -393,7 +393,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Veröffentlicht am</div>
-          <div>July 16, 2024</div>
+          <div>August 10, 2025</div>
         </div>
       
       
@@ -425,18 +425,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07/16/IntelliJIDEASpringInitializrConnection/" title="IntelliJ IDEA Spring Initializr连接被拒绝问题解决方案">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">IntelliJ IDEA Spring Initializr连接被拒绝问题解决方案</span>
-                        <span class="visible-mobile">Vorheriger</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/10/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/" title="告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南">
-                        <span class="hidden-mobile">告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南</span>
+                      <a href="/2025/07/16/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%BC%95%E7%94%A8GitHub%E4%BB%93%E5%BA%93%E5%9B%BE%E7%89%87%E5%88%B0Hexo%E5%8D%9A%E5%AE%A2/" title="教程：如何正确引用GitHub仓库图片到Hexo博客">
+                        <span class="hidden-mobile">教程：如何正确引用GitHub仓库图片到Hexo博客</span>
                         <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

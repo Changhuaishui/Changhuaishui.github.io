@@ -19,31 +19,27 @@
   <meta name="author" content="chenji">
   <meta name="keywords" content="">
   
-    <meta name="description" content="部署 Gemini CLI 的排错与解决方案前言Google Gemini 以其强大的多模态能力吸引了无数开发者，Gemini CLI 则为我们提供了在终端中与其交互的便捷方式。对于国内开发者来说，部署过程中常遇到网络和认证等问题。本文记录本人部署 Gemini CLI 的完整排错过程及最终解决方案，希望能帮你少走弯路。 Step 1: 基础准备请确保你已准备好以下内容：  Node.js 环境（">
+    <meta name="description" content="前言在撰写Hexo博客时，如何稳定、高效地管理和引用图片是一个常见问题。许多博主选择使用GitHub作为免费的图床，但这其中有一些常见的“坑”，比如图片链接失效、图片不显示等。本文将详细总结从创建仓库到在Markdown中正确引用图片，再到最终发布的完整流程和注意事项。 流程概览 创建一个公开的GitHub仓库作为图床。 上传图片文件到该仓库。 获取图片的正确链接（这是最关键的一步！）。 在Mar">
 <meta property="og:type" content="article">
-<meta property="og:title" content="部署 Gemini CLI 的排错与解决方案">
-<meta property="og:url" content="http://example.com/2023/07/15/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/index.html">
+<meta property="og:title" content="教程：如何正确引用GitHub仓库图片到Hexo博客">
+<meta property="og:url" content="http://example.com/2025/07/16/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%BC%95%E7%94%A8GitHub%E4%BB%93%E5%BA%93%E5%9B%BE%E7%89%87%E5%88%B0Hexo%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="解决个人在intellij中部署maven的pom文件出现的错误">
-<meta property="og:description" content="部署 Gemini CLI 的排错与解决方案前言Google Gemini 以其强大的多模态能力吸引了无数开发者，Gemini CLI 则为我们提供了在终端中与其交互的便捷方式。对于国内开发者来说，部署过程中常遇到网络和认证等问题。本文记录本人部署 Gemini CLI 的完整排错过程及最终解决方案，希望能帮你少走弯路。 Step 1: 基础准备请确保你已准备好以下内容：  Node.js 环境（">
+<meta property="og:description" content="前言在撰写Hexo博客时，如何稳定、高效地管理和引用图片是一个常见问题。许多博主选择使用GitHub作为免费的图床，但这其中有一些常见的“坑”，比如图片链接失效、图片不显示等。本文将详细总结从创建仓库到在Markdown中正确引用图片，再到最终发布的完整流程和注意事项。 流程概览 创建一个公开的GitHub仓库作为图床。 上传图片文件到该仓库。 获取图片的正确链接（这是最关键的一步！）。 在Mar">
 <meta property="og:locale">
-<meta property="og:image" content="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/%E4%BB%A3%E7%90%86TUN%E6%A8%A1%E5%BC%8F.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/GEMINI.png">
-<meta property="article:published_time" content="2023-07-15T06:30:00.000Z">
-<meta property="article:modified_time" content="2025-07-18T08:01:16.187Z">
+<meta property="article:published_time" content="2025-07-15T17:00:00.000Z">
+<meta property="article:modified_time" content="2025-07-18T11:32:30.907Z">
 <meta property="article:author" content="chenji">
-<meta property="article:tag" content="Gemini">
-<meta property="article:tag" content="CLI">
-<meta property="article:tag" content="Google AI">
-<meta property="article:tag" content="代理设置">
-<meta property="article:tag" content="问题排查">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="Markdown">
+<meta property="article:tag" content="图片引用">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/%E4%BB%A3%E7%90%86TUN%E6%A8%A1%E5%BC%8F.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>部署 Gemini CLI 的排错与解决方案 - 解决个人在intellij中部署maven的pom文件出现的错误</title>
+  <title>教程：如何正确引用GitHub仓库图片到Hexo博客 - 解决个人在intellij中部署maven的pom文件出现的错误</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -209,7 +205,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="部署 Gemini CLI 的排错与解决方案"></span>
+            <span id="subtitle" data-typed-text="教程：如何正确引用GitHub仓库图片到Hexo博客"></span>
           
         </div>
 
@@ -220,8 +216,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-07-15 14:30" pubdate>
-          July 15, 2023 pm
+        <time datetime="2025-07-16 01:00" pubdate>
+          July 16, 2025 am
         </time>
       </span>
     
@@ -232,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          813 wörter
+          1.4k wörter
         
       </span>
     
@@ -243,7 +239,7 @@
         
         
         
-          7 minuten
+          12 minuten
         
       </span>
     
@@ -280,70 +276,59 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">部署 Gemini CLI 的排错与解决方案</h1>
+            <h1 id="seo-header">教程：如何正确引用GitHub仓库图片到Hexo博客</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="部署-Gemini-CLI-的排错与解决方案"><a href="#部署-Gemini-CLI-的排错与解决方案" class="headerlink" title="部署 Gemini CLI 的排错与解决方案"></a>部署 Gemini CLI 的排错与解决方案</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Google Gemini 以其强大的多模态能力吸引了无数开发者，Gemini CLI 则为我们提供了在终端中与其交互的便捷方式。对于国内开发者来说，部署过程中常遇到网络和认证等问题。本文记录本人部署 Gemini CLI 的完整排错过程及最终解决方案，希望能帮你少走弯路。</p>
-<h2 id="Step-1-基础准备"><a href="#Step-1-基础准备" class="headerlink" title="Step 1: 基础准备"></a>Step 1: 基础准备</h2><p>请确保你已准备好以下内容：</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在撰写Hexo博客时，如何稳定、高效地管理和引用图片是一个常见问题。许多博主选择使用GitHub作为免费的图床，但这其中有一些常见的“坑”，比如图片链接失效、图片不显示等。本文将详细总结从创建仓库到在Markdown中正确引用图片，再到最终发布的完整流程和注意事项。</p>
+<h2 id="流程概览"><a href="#流程概览" class="headerlink" title="流程概览"></a>流程概览</h2><ol>
+<li><strong>创建</strong>一个<strong>公开</strong>的GitHub仓库作为图床。</li>
+<li><strong>上传</strong>图片文件到该仓库。</li>
+<li><strong>获取</strong>图片的<strong>正确链接</strong>（这是最关键的一步！）。</li>
+<li>在Markdown文章中<strong>引用</strong>图片链接。</li>
+<li><strong>部署</strong>您的Hexo博客。</li>
+</ol>
+<hr>
+<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><h3 id="第一步：创建公开的GitHub仓库"><a href="#第一步：创建公开的GitHub仓库" class="headerlink" title="第一步：创建公开的GitHub仓库"></a>第一步：创建公开的GitHub仓库</h3><p>为了让所有人都能访问到您的图片，存放图片的GitHub仓库<strong>必须是公开的（Public）</strong>。如果是私有仓库（Private），则只有您自己登录后才能看到图片，您的读者将看到一个破碎的图片图标🏞️。</p>
+<h3 id="第二步：上传图片到仓库"><a href="#第二步：上传图片到仓库" class="headerlink" title="第二步：上传图片到仓库"></a>第二步：上传图片到仓库</h3><p>您可以直接在GitHub网页上或者使用Git客户端将图片文件上传到您的图床仓库中。建议在仓库里创建一个专门的文件夹（如 <code>images</code> 或 <code>assets</code>）来存放图片，方便管理。</p>
+<h3 id="第三步：获取正确的图片URL（核心）"><a href="#第三步：获取正确的图片URL（核心）" class="headerlink" title="第三步：获取正确的图片URL（核心）"></a>第三步：获取正确的图片URL（核心）</h3><p>这是最容易出错的地方。我们来深入理解一下不同链接之间的区别。</p>
+<h4 id="链接辨析：网页-vs-原始文件"><a href="#链接辨析：网页-vs-原始文件" class="headerlink" title="链接辨析：网页 vs 原始文件"></a>链接辨析：网页 vs 原始文件</h4><h5 id="1-错误的链接：github-com-网页链接"><a href="#1-错误的链接：github-com-网页链接" class="headerlink" title="1. 错误的链接：github.com 网页链接"></a>1. 错误的链接：<code>github.com</code> 网页链接</h5><ul>
+<li><strong>格式</strong>: <code>https://github.com/USERNAME/REPO/blob/main/images/demo.png</code></li>
+<li><strong>这是什么</strong>: 当你在浏览器中打开这个链接，你看到的不仅仅是图片，而是一个完整的<strong>GitHub网页</strong>，它包含了导航栏、文件列表、代码操作按钮等元素，您的图片只是内嵌在其中。</li>
+<li><strong>为何错误</strong>: 在Markdown中使用 <code>![]()</code> 语法时，它需要一个纯粹的图片文件。你给它一个完整的HTML网页，浏览器无法将其渲染为图片，因此链接会失效。</li>
+<li><strong>一个比喻</strong>: 这就像想在相框里放一张照片，却把整个照相馆（连同前台、沙发和摄影师）都硬塞了进去，相框当然装不下。</li>
+</ul>
+<h5 id="2-正确的链接：raw-githubusercontent-com-原始文件链接"><a href="#2-正确的链接：raw-githubusercontent-com-原始文件链接" class="headerlink" title="2. 正确的链接：raw.githubusercontent.com 原始文件链接"></a>2. 正确的链接：<code>raw.githubusercontent.com</code> 原始文件链接</h5><ul>
+<li><strong>格式</strong>: <code>https://raw.githubusercontent.com/USERNAME/REPO/main/images/demo.png</code></li>
+<li><strong>这是什么</strong>: 这是GitHub专门用来提供**文件原始数据（Raw Content）**的CDN服务器地址。访问这个链接，返回的是没有任何多余元素的、纯粹的图片文件数据。</li>
+<li><strong>为何正确</strong>: 这个链接直接指向图片文件本身，浏览器可以毫无障碍地识别并渲染它。</li>
+<li><strong>继续比喻</strong>: 这个链接相当于直接把<strong>照片本身</strong>递给了相框，完美匹配。</li>
+</ul>
+<h4 id="技巧：如何快速获取正确的图片链接"><a href="#技巧：如何快速获取正确的图片链接" class="headerlink" title="技巧：如何快速获取正确的图片链接"></a>技巧：如何快速获取正确的图片链接</h4><p>你不需要手动修改URL。GitHub提供了一个非常简单的方法来获取正确的原始链接，这是一个百试百灵的技巧：</p>
 <ol>
-<li><strong>Node.js 环境</strong>（推荐 18.x 或更高版本，请自备）</li>
-<li><strong>网络代理工具</strong>（如 Clash、V2RayN）</li>
-<li><strong>Gemini API 密钥</strong>（可在 <a target="_blank" rel="noopener" href="https://ai.google.dev/">Google AI Studio</a> 免费获取，可选吧）</li>
+<li><strong>第一步：在GitHub上找到您的图片文件</strong><br>打开您的图床仓库，并导航到您想要引用的图片文件页面。</li>
+<li><strong>第二步：找到 “Download” 按钮</strong><br>在图片预览的右上方，你会看到几个按钮，其中有一个是 <strong>“Download”</strong>（下载）按钮。</li>
+<li><strong>第三步：右键复制链接（最关键）</strong><br>将鼠标光标移动到 <strong>“Download”</strong> 按钮上，然后点击鼠标<strong>右键</strong>，在弹出的菜单中选择 <strong>“复制链接地址”</strong> (Copy Link Address) 或类似的选项。</li>
+<li><strong>第四步：粘贴到Markdown</strong><br>现在你的剪贴板里的链接就是格式为 <code>https://raw.githubusercontent.com/...</code> 的正确链接了。直接将它粘贴到你的Markdown文档中即可！</li>
 </ol>
-<blockquote>
-<p>注意：Gemini CLI 是基于 Node.js 开发的工具，不是 Python 工具。这是与其他一些 AI 工具的主要区别之一。</p>
-</blockquote>
-<h2 id="Step-2-安装-Gemini-CLI"><a href="#Step-2-安装-Gemini-CLI" class="headerlink" title="Step 2: 安装 Gemini CLI"></a>Step 2: 安装 Gemini CLI</h2><p>在终端运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install -g @google/gemini-cli<br></code></pre></td></tr></table></figure>
+<p>这样操作，既快速又保证100%正确，再也不用担心链接引用错误的问题了。</p>
+<h3 id="第四步：在Markdown中引用图片"><a href="#第四步：在Markdown中引用图片" class="headerlink" title="第四步：在Markdown中引用图片"></a>第四步：在Markdown中引用图片</h3><p>使用标准的Markdown语法即可：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">![<span class="hljs-string">这里是图片的描述文字</span>](<span class="hljs-link">https://raw.githubusercontent.com/USERNAME/REPO/main/images/demo.png</span>)<br></code></pre></td></tr></table></figure>
 
-<p>或者，如果你只想尝试而不想全局安装，可以使用：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npx https://github.com/google-gemini/gemini-cli<br></code></pre></td></tr></table></figure>
+<h3 id="第五步：部署您的Hexo博客"><a href="#第五步：部署您的Hexo博客" class="headerlink" title="第五步：部署您的Hexo博客"></a>第五步：部署您的Hexo博客</h3><p>在确认文章和图片链接无误后，执行标准的部署流程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 1. 清理旧缓存</span><br>hexo clean<br><br><span class="hljs-comment"># 2. 生成新的静态文件</span><br>hexo g<br><br><span class="hljs-comment"># 3. 部署到您的网站</span><br>hexo d<br></code></pre></td></tr></table></figure>
 
-<p>安装完成后，<code>gemini</code> 命令即可使用。</p>
-<h2 id="Step-3-排错全过程复盘"><a href="#Step-3-排错全过程复盘" class="headerlink" title="Step 3: 排错全过程复盘"></a>Step 3: 排错全过程复盘</h2><h3 id="1-Waiting-for-auth-Login-with-Google-失败"><a href="#1-Waiting-for-auth-Login-with-Google-失败" class="headerlink" title="1. Waiting for auth... &amp; Login with Google 失败"></a>1. <code>Waiting for auth...</code> &amp; <code>Login with Google</code> 失败</h3><ul>
-<li><strong>问题</strong>：卡在 <code>Waiting for auth...</code>，选择 <code>Login with Google</code> 报错：需设置 <code>GOOGLE_CLOUD_PROJECT</code>。</li>
-<li><strong>原因</strong>：Google 账号需绑定 GCP 项目，个人开发者不便。</li>
-<li><strong>解决</strong>：放弃 Google 登录，改用 API 密钥。</li>
-</ul>
-<h3 id="2-GEMINI-API-KEY-not-found"><a href="#2-GEMINI-API-KEY-not-found" class="headerlink" title="2. GEMINI_API_KEY not found"></a>2. <code>GEMINI_API_KEY not found</code></h3><ul>
-<li><strong>问题</strong>：选择 <code>Use Gemini API Key</code>，提示找不到环境变量。</li>
-<li><strong>解决</strong>：设置环境变量（建议同时设置 <code>GEMINI_API_KEY</code> 和 <code>GOOGLE_API_KEY</code>）。</li>
-</ul>
-<p><strong>Bash (macOS&#x2F;Linux)：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> GEMINI_API_KEY=<span class="hljs-string">&quot;你的API密钥&quot;</span><br><span class="hljs-built_in">export</span> GOOGLE_API_KEY=<span class="hljs-string">&quot;你的API密钥&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p><strong>Windows (CMD)：</strong></p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmd"><span class="hljs-built_in">set</span> GEMINI_API_KEY=你的API密钥<br><span class="hljs-built_in">set</span> GOOGLE_API_KEY=你的API密钥<br></code></pre></td></tr></table></figure>
-
-<h3 id="3-请求无响应-代理设置（端口号请自己确认是不是自己代理走的端口号）"><a href="#3-请求无响应-代理设置（端口号请自己确认是不是自己代理走的端口号）" class="headerlink" title="3. 请求无响应 &amp; 代理设置（端口号请自己确认是不是自己代理走的端口号）"></a>3. 请求无响应 &amp; 代理设置（端口号请自己确认是不是自己代理走的端口号）</h3><ul>
-<li><strong>问题</strong>：认证通过但网络无响应，超时失败。</li>
-<li><strong>原因</strong>：Gemini CLI 不会自动读取系统代理。</li>
-<li><strong>解决</strong>：为终端会话设置 <code>https_proxy</code> 环境变量。<br> <img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/%E4%BB%A3%E7%90%86TUN%E6%A8%A1%E5%BC%8F.png" srcset="/img/loading.gif" lazyload alt="代理 示例"></li>
-</ul>
-<p><strong>Bash (macOS&#x2F;Linux)：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> https_proxy=http://127.0.0.1:7890<br></code></pre></td></tr></table></figure>
-
-<p><strong>Windows (CMD)：</strong></p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd"><span class="hljs-built_in">set</span> https_proxy=http://<span class="hljs-number">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>:<span class="hljs-number">7890</span><br></code></pre></td></tr></table></figure>
-
-<p>设置好 API 密钥和代理后，Gemini CLI 即可正常使用。</p>
-<p><img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/GEMINI.png" srcset="/img/loading.gif" lazyload alt="Gemini CLI 使用示例"></p>
-<p>参考文章：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7520139212605128714">国内使用 Gemini CLI 常见登录授权失败：安装与排错指南国内使用 Gemini CLI 常见登录授权失败,网络问 - 掘金</a></p>
-<h2 id="Step-4-解决方案——TUN-模式"><a href="#Step-4-解决方案——TUN-模式" class="headerlink" title="Step 4: 解决方案——TUN 模式"></a>Step 4: 解决方案——TUN 模式</h2><p>每次手动设置代理环境变量较为繁琐。推荐开启代理软件（如 Clash）的 <strong>TUN 模式</strong>，让系统所有流量自动走代理，无需每次手动设置。</p>
-<p><strong>操作方法（以 Clash 为例）：</strong></p>
-<ol>
-<li>在 Clash 设置中开启”TUN模式”或”虚拟网卡”。</li>
-<li>授权相关系统权限。</li>
-<li>启用后，所有应用（包括终端）都能自动代理，无需再设置 <code>https_proxy</code>。</li>
+<hr>
+<h2 id="注意事项与问题排查"><a href="#注意事项与问题排查" class="headerlink" title="注意事项与问题排查"></a>注意事项与问题排查</h2><ol>
+<li><strong>仓库必须公开</strong>：再次强调，这是图片能否被外部访问的前提。</li>
+<li><strong>文章日期问题</strong>：如果您发现某篇文章在本地存在，但部署后网站上没有显示，请检查文章头部的 <code>date</code>字段。如果日期是一个未来的时间，Hexo默认是不会生成这篇文章的。将其修改为当前或过去的时间即可。</li>
+<li><strong>缓存问题</strong>：在排查问题时，如果确认修改无误但网站仍未更新，请务必<strong>强制刷新</strong>您的浏览器缓存（通常是 <code>Ctrl + Shift + R</code> 或 <code>Cmd + Shift + R</code>）。</li>
+<li><strong>检查URL拼写</strong>：一个字母或符号的错误都会导致链接失效。请仔细核对您的用户名、仓库名、分支名（通常是 <code>main</code>）和文件路径。</li>
+<li><strong>直接访问URL测试</strong>：将最终使用的图片URL直接粘贴到浏览器地址栏并访问。如果图片能正常显示，说明链接本身是有效的。</li>
+<li>GitHub 的原始图片链接格式有误。在 GitHub 中，当你要直接访问原始图片时，URL 中的 “blob&#x2F;main” 应该改为 “main。</li>
 </ol>
-<h2 id="总结：最佳实践工作流"><a href="#总结：最佳实践工作流" class="headerlink" title="总结：最佳实践工作流"></a>总结：最佳实践工作流</h2><ol>
-<li><strong>一次性配置</strong>：将 <code>GEMINI_API_KEY</code> 和 <code>GOOGLE_API_KEY</code> 添加为系统环境变量（macOS&#x2F;Linux 写入 <code>~/.zshrc</code> 或 <code>~/.bashrc</code>，Windows 通过”系统属性-环境变量”设置）。</li>
-<li><strong>开启 TUN 模式</strong>：日常只需打开代理软件并确保 TUN 模式开启。</li>
-<li><strong>直接使用</strong>：随时在终端输入 <code>gemini &quot;你的问题&quot;</code>，无需额外设置。</li>
-</ol>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>部署 Gemini CLI 的过程虽有波折，但通过合理设置环境变量和代理，结合 TUN 模式，完全可以顺利使用。希望本指南能为你提供帮助。<br>后续：由于我在别的终端设置时使用Gemini CLI遇到新的问题，后续找到解决办法再解决。</p>
+<p>希望这篇总结能帮助您彻底解决Hexo博客中的图片引用问题！</p>
 
                 
               </div>
@@ -362,15 +347,8 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="category-chain-item">开发工具</a>
+  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" class="category-chain-item">博客教程</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AI%E5%B7%A5%E5%85%B7/" class="category-chain-item">AI工具</a>
-  
-  
-
   
 
       </span>
@@ -384,15 +362,13 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Gemini/" class="print-no-link">#Gemini</a>
+        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
       
-        <a href="/tags/CLI/" class="print-no-link">#CLI</a>
+        <a href="/tags/GitHub/" class="print-no-link">#GitHub</a>
       
-        <a href="/tags/Google-AI/" class="print-no-link">#Google AI</a>
+        <a href="/tags/Markdown/" class="print-no-link">#Markdown</a>
       
-        <a href="/tags/%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/" class="print-no-link">#代理设置</a>
-      
-        <a href="/tags/%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" class="print-no-link">#问题排查</a>
+        <a href="/tags/%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/" class="print-no-link">#图片引用</a>
       
     </div>
   
@@ -404,8 +380,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>部署 Gemini CLI 的排错与解决方案</div>
-      <div>http://example.com/2023/07/15/个人使用部署Gemini-cli心得/</div>
+      <div>教程：如何正确引用GitHub仓库图片到Hexo博客</div>
+      <div>http://example.com/2025/07/16/如何正确引用GitHub仓库图片到Hexo博客/</div>
     </div>
     <div class="license-meta">
       
@@ -417,7 +393,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Veröffentlicht am</div>
-          <div>July 15, 2023</div>
+          <div>July 16, 2025</div>
         </div>
       
       
@@ -449,7 +425,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/10/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/" title="告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南">
+                      <a href="/2025/08/10/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/" title="告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南</span>
                         <span class="visible-mobile">Vorheriger</span>
@@ -459,8 +435,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/07/14/%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE%E5%AF%BC%E8%87%B4%E7%9A%84Git%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E4%B8%8E%E8%A7%A3%E5%86%B3/" title="代理配置导致的Git连接问题分析与解决">
-                        <span class="hidden-mobile">代理配置导致的Git连接问题分析与解决</span>
+                      <a href="/2025/07/15/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/" title="部署 Gemini CLI 的排错与解决方案">
+                        <span class="hidden-mobile">部署 Gemini CLI 的排错与解决方案</span>
                         <span class="visible-mobile">Nächster</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
