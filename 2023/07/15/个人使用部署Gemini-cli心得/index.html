@@ -1,12 +1,25 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="c" data-default-color-scheme=auto>
+
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/image/DORO/%E8%9C%98%E8%9B%9Bdoro.gif">
   
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <title>部署 Gemini CLI 的排错与解决方案 | 解决个人在intellij中部署maven的pom文件出现的错误</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="部署 Gemini CLI 的排错与解决方案前言Google Gemini 以其强大的多模态能力吸引了无数开发者，Gemini CLI 则为我们提供了在终端中与其交互的便捷方式。对于国内开发者来说，部署过程中常遇到网络和认证等问题。本文记录本人部署 Gemini CLI 的完整排错过程及最终解决方案，希望能帮你少走弯路。 Step 1: 基础准备请确保你已准备好以下内容：  Node.js 环境（">
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="chenji">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="部署 Gemini CLI 的排错与解决方案前言Google Gemini 以其强大的多模态能力吸引了无数开发者，Gemini CLI 则为我们提供了在终端中与其交互的便捷方式。对于国内开发者来说，部署过程中常遇到网络和认证等问题。本文记录本人部署 Gemini CLI 的完整排错过程及最终解决方案，希望能帮你少走弯路。 Step 1: 基础准备请确保你已准备好以下内容：  Node.js 环境（">
 <meta property="og:type" content="article">
 <meta property="og:title" content="部署 Gemini CLI 的排错与解决方案">
 <meta property="og:url" content="http://example.com/2023/07/15/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/index.html">
@@ -18,96 +31,261 @@
 <meta property="article:published_time" content="2023-07-15T06:30:00.000Z">
 <meta property="article:modified_time" content="2025-07-18T08:01:16.187Z">
 <meta property="article:author" content="chenji">
-<meta property="article:tag" content="问题排查">
 <meta property="article:tag" content="Gemini">
 <meta property="article:tag" content="CLI">
 <meta property="article:tag" content="Google AI">
 <meta property="article:tag" content="代理设置">
-<meta name="twitter:card" content="summary">
+<meta property="article:tag" content="问题排查">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/%E4%BB%A3%E7%90%86TUN%E6%A8%A1%E5%BC%8F.png">
   
-    <link rel="alternate" href="/atom.xml" title="解决个人在intellij中部署maven的pom文件出现的错误" type="application/atom+xml">
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-    <link rel="shortcut icon" href="/favicon.png">
+  <title>部署 Gemini CLI 的排错与解决方案 - 解决个人在intellij中部署maven的pom文件出现的错误</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
-<link rel="stylesheet" href="/css/style.css">
+
 
   
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
-
 <meta name="generator" content="Hexo 7.3.0"></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">解决个人在intellij中部署maven的pom文件出现的错误</a>
-      </h1>
-      
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>陈迹的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Startseite</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archiv</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Kategorien</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Schlagwörter</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>Über</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/image/DORO/%E8%9C%98%E8%9B%9Bdoro.gif') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="部署 Gemini CLI 的排错与解决方案"></span>
+          
+        </div>
+
         
-          <a class="main-nav-link" href="/">Home</a>
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-15 14:30" pubdate>
+          July 15, 2023 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          813 wörter
         
-      </nav>
-      <nav id="sub-nav">
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
         
         
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
         
-        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+          7 minuten
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
   </div>
-</header>
+</div>
 
-      <div class="outer">
-        <section id="main"><article id="post-个人使用部署Gemini-cli心得" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/07/15/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/" class="article-date">
-  <time class="dt-published" datetime="2023-07-15T06:30:00.000Z" itemprop="datePublished">2023-07-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>►<a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
-  </div>
+</div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      部署 Gemini CLI 的排错与解决方案
-    </h1>
-  
+  </header>
 
-      </header>
+  <main>
     
-    <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="部署-Gemini-CLI-的排错与解决方案"><a href="#部署-Gemini-CLI-的排错与解决方案" class="headerlink" title="部署 Gemini CLI 的排错与解决方案"></a>部署 Gemini CLI 的排错与解决方案</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Google Gemini 以其强大的多模态能力吸引了无数开发者，Gemini CLI 则为我们提供了在终端中与其交互的便捷方式。对于国内开发者来说，部署过程中常遇到网络和认证等问题。本文记录本人部署 Gemini CLI 的完整排错过程及最终解决方案，希望能帮你少走弯路。</p>
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">部署 Gemini CLI 的排错与解决方案</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="部署-Gemini-CLI-的排错与解决方案"><a href="#部署-Gemini-CLI-的排错与解决方案" class="headerlink" title="部署 Gemini CLI 的排错与解决方案"></a>部署 Gemini CLI 的排错与解决方案</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Google Gemini 以其强大的多模态能力吸引了无数开发者，Gemini CLI 则为我们提供了在终端中与其交互的便捷方式。对于国内开发者来说，部署过程中常遇到网络和认证等问题。本文记录本人部署 Gemini CLI 的完整排错过程及最终解决方案，希望能帮你少走弯路。</p>
 <h2 id="Step-1-基础准备"><a href="#Step-1-基础准备" class="headerlink" title="Step 1: 基础准备"></a>Step 1: 基础准备</h2><p>请确保你已准备好以下内容：</p>
 <ol>
 <li><strong>Node.js 环境</strong>（推荐 18.x 或更高版本，请自备）</li>
@@ -118,10 +296,10 @@
 <p>注意：Gemini CLI 是基于 Node.js 开发的工具，不是 Python 工具。这是与其他一些 AI 工具的主要区别之一。</p>
 </blockquote>
 <h2 id="Step-2-安装-Gemini-CLI"><a href="#Step-2-安装-Gemini-CLI" class="headerlink" title="Step 2: 安装 Gemini CLI"></a>Step 2: 安装 Gemini CLI</h2><p>在终端运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @google/gemini-cli</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install -g @google/gemini-cli<br></code></pre></td></tr></table></figure>
 
 <p>或者，如果你只想尝试而不想全局安装，可以使用：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx https://github.com/google-gemini/gemini-cli</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npx https://github.com/google-gemini/gemini-cli<br></code></pre></td></tr></table></figure>
 
 <p>安装完成后，<code>gemini</code> 命令即可使用。</p>
 <h2 id="Step-3-排错全过程复盘"><a href="#Step-3-排错全过程复盘" class="headerlink" title="Step 3: 排错全过程复盘"></a>Step 3: 排错全过程复盘</h2><h3 id="1-Waiting-for-auth-Login-with-Google-失败"><a href="#1-Waiting-for-auth-Login-with-Google-失败" class="headerlink" title="1. Waiting for auth... &amp; Login with Google 失败"></a>1. <code>Waiting for auth...</code> &amp; <code>Login with Google</code> 失败</h3><ul>
@@ -134,24 +312,24 @@
 <li><strong>解决</strong>：设置环境变量（建议同时设置 <code>GEMINI_API_KEY</code> 和 <code>GOOGLE_API_KEY</code>）。</li>
 </ul>
 <p><strong>Bash (macOS&#x2F;Linux)：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GEMINI_API_KEY=<span class="string">&quot;你的API密钥&quot;</span></span><br><span class="line"><span class="built_in">export</span> GOOGLE_API_KEY=<span class="string">&quot;你的API密钥&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> GEMINI_API_KEY=<span class="hljs-string">&quot;你的API密钥&quot;</span><br><span class="hljs-built_in">export</span> GOOGLE_API_KEY=<span class="hljs-string">&quot;你的API密钥&quot;</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>Windows (CMD)：</strong></p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> GEMINI_API_KEY=你的API密钥</span><br><span class="line"><span class="built_in">set</span> GOOGLE_API_KEY=你的API密钥</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmd"><span class="hljs-built_in">set</span> GEMINI_API_KEY=你的API密钥<br><span class="hljs-built_in">set</span> GOOGLE_API_KEY=你的API密钥<br></code></pre></td></tr></table></figure>
 
 <h3 id="3-请求无响应-代理设置（端口号请自己确认是不是自己代理走的端口号）"><a href="#3-请求无响应-代理设置（端口号请自己确认是不是自己代理走的端口号）" class="headerlink" title="3. 请求无响应 &amp; 代理设置（端口号请自己确认是不是自己代理走的端口号）"></a>3. 请求无响应 &amp; 代理设置（端口号请自己确认是不是自己代理走的端口号）</h3><ul>
 <li><strong>问题</strong>：认证通过但网络无响应，超时失败。</li>
 <li><strong>原因</strong>：Gemini CLI 不会自动读取系统代理。</li>
-<li><strong>解决</strong>：为终端会话设置 <code>https_proxy</code> 环境变量。<br> <img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/%E4%BB%A3%E7%90%86TUN%E6%A8%A1%E5%BC%8F.png" alt="代理 示例"></li>
+<li><strong>解决</strong>：为终端会话设置 <code>https_proxy</code> 环境变量。<br> <img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/%E4%BB%A3%E7%90%86TUN%E6%A8%A1%E5%BC%8F.png" srcset="/img/loading.gif" lazyload alt="代理 示例"></li>
 </ul>
 <p><strong>Bash (macOS&#x2F;Linux)：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> https_proxy=http://127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> https_proxy=http://127.0.0.1:7890<br></code></pre></td></tr></table></figure>
 
 <p><strong>Windows (CMD)：</strong></p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> https_proxy=http://<span class="number">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">7890</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd"><span class="hljs-built_in">set</span> https_proxy=http://<span class="hljs-number">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>:<span class="hljs-number">7890</span><br></code></pre></td></tr></table></figure>
 
 <p>设置好 API 密钥和代理后，Gemini CLI 即可正常使用。</p>
-<p><img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/GEMINI.png" alt="Gemini CLI 使用示例"></p>
+<p><img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/GEMINI.png" srcset="/img/loading.gif" lazyload alt="Gemini CLI 使用示例"></p>
 <p>参考文章：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7520139212605128714">国内使用 Gemini CLI 常见登录授权失败：安装与排错指南国内使用 Gemini CLI 常见登录授权失败,网络问 - 掘金</a></p>
 <h2 id="Step-4-解决方案——TUN-模式"><a href="#Step-4-解决方案——TUN-模式" class="headerlink" title="Step 4: 解决方案——TUN 模式"></a>Step 4: 解决方案——TUN 模式</h2><p>每次手动设置代理环境变量较为繁琐。推荐开启代理软件（如 Clash）的 <strong>TUN 模式</strong>，让系统所有流量自动走代理，无需每次手动设置。</p>
 <p><strong>操作方法（以 Clash 为例）：</strong></p>
@@ -167,157 +345,414 @@
 </ol>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>部署 Gemini CLI 的过程虽有波折，但通过合理设置环境变量和代理，结合 TUN 模式，完全可以顺利使用。希望本指南能为你提供帮助。<br>后续：由于我在别的终端设置时使用Gemini CLI遇到新的问题，后续找到解决办法再解决。</p>
 
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/07/15/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/" data-id="cmd8j5yt70006dgij2k6203cc" data-title="部署 Gemini CLI 的排错与解决方案" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CLI/" rel="tag">CLI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gemini/" rel="tag">Gemini</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Google-AI/" rel="tag">Google AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/" rel="tag">代理设置</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" rel="tag">问题排查</a></li></ul>
 
-    </footer>
-  </div>
+<span class="category-chains">
+  
   
     
-<nav id="article-nav">
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="category-chain-item">开发工具</a>
   
-    <a href="/2023/08/10/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南
-        
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AI%E5%B7%A5%E5%85%B7/" class="category-chain-item">AI工具</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Gemini/" class="print-no-link">#Gemini</a>
+      
+        <a href="/tags/CLI/" class="print-no-link">#CLI</a>
+      
+        <a href="/tags/Google-AI/" class="print-no-link">#Google AI</a>
+      
+        <a href="/tags/%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/" class="print-no-link">#代理设置</a>
+      
+        <a href="/tags/%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" class="print-no-link">#问题排查</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>部署 Gemini CLI 的排错与解决方案</div>
+      <div>http://example.com/2023/07/15/个人使用部署Gemini-cli心得/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Beitragsautor</div>
+          <div>chenji</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Veröffentlicht am</div>
+          <div>July 15, 2023</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Urheberrechtshinweis</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/08/10/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/" title="告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/07/14/%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE%E5%AF%BC%E8%87%B4%E7%9A%84Git%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E4%B8%8E%E8%A7%A3%E5%86%B3/" title="代理配置导致的Git连接问题分析与解决">
+                        <span class="hidden-mobile">代理配置导致的Git连接问题分析与解决</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
       </div>
-    </a>
-  
-  
-    <a href="/2023/07/14/%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE%E5%AF%BC%E8%87%B4%E7%9A%84Git%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E4%B8%8E%E8%A7%A3%E5%86%B3/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">代理配置导致的Git连接问题分析与解决</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Kategorien</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/">博客教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AI%E5%B7%A5%E5%85%B7/">AI工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/IDEA/">IDEA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Spring/IDEA/%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/">网络问题</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/%E7%A1%AC%E4%BB%B6%E9%97%AE%E9%A2%98/">硬件问题</a></li></ul></li></ul>
     </div>
-  </div>
 
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CLI/" rel="tag">CLI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESET/" rel="tag">ESET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gemini/" rel="tag">Gemini</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AI/" rel="tag">Google AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntelliJ/" rel="tag">IntelliJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntelliJ-IDEA/" rel="tag">IntelliJ IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/POM/" rel="tag">POM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Initializr/" rel="tag">Spring Initializr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/" rel="tag">代理设置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%8143/" rel="tag">代码43</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BE%9D%E8%B5%96/" rel="tag">依赖</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/" rel="tag">图片引用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4/" rel="tag">故障排除</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9/" rel="tag">版本兼容</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/" rel="tag">网络代理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%93%9D%E7%89%99/" rel="tag">蓝牙</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90/" rel="tag">错误分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" rel="tag">问题排查</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" rel="tag">问题解决</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/CLI/" style="font-size: 10px;">CLI</a> <a href="/tags/ESET/" style="font-size: 10px;">ESET</a> <a href="/tags/Gemini/" style="font-size: 10px;">Gemini</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Google-AI/" style="font-size: 10px;">Google AI</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/IntelliJ/" style="font-size: 10px;">IntelliJ</a> <a href="/tags/IntelliJ-IDEA/" style="font-size: 20px;">IntelliJ IDEA</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Maven/" style="font-size: 20px;">Maven</a> <a href="/tags/POM/" style="font-size: 10px;">POM</a> <a href="/tags/Spring-Initializr/" style="font-size: 10px;">Spring Initializr</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 10px;">代理</a> <a href="/tags/%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/" style="font-size: 10px;">代理设置</a> <a href="/tags/%E4%BB%A3%E7%A0%8143/" style="font-size: 10px;">代码43</a> <a href="/tags/%E4%BE%9D%E8%B5%96/" style="font-size: 20px;">依赖</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/" style="font-size: 10px;">图片引用</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a> <a href="/tags/%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4/" style="font-size: 10px;">故障排除</a> <a href="/tags/%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9/" style="font-size: 10px;">版本兼容</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 20px;">网络</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/" style="font-size: 10px;">网络代理</a> <a href="/tags/%E8%93%9D%E7%89%99/" style="font-size: 10px;">蓝牙</a> <a href="/tags/%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90/" style="font-size: 10px;">错误分析</a> <a href="/tags/%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" style="font-size: 20px;">问题排查</a> <a href="/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" style="font-size: 10px;">问题解决</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">July 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2025/07/08/Java%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E4%B8%8EMaven%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/">Java版本兼容性与Maven依赖问题全解析</a>
-          </li>
-        
-          <li>
-            <a href="/2025/07/07/%E8%A7%A3%E5%86%B3%E4%B8%AA%E4%BA%BA%E5%9C%A8intellij%E4%B8%AD%E9%83%A8%E7%BD%B2maven%E7%9A%84pom%E6%96%87%E4%BB%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/">解决个人在 IntelliJ 中部署 Maven 的 POM 文件出现的错误</a>
-          </li>
-        
-          <li>
-            <a href="/2025/07/07/hello-world/">Welcome to My Tech Blog</a>
-          </li>
-        
-          <li>
-            <a href="/2024/07/16/IntelliJIDEASpringInitializrConnection/">IntelliJ IDEA Spring Initializr连接被拒绝问题解决方案</a>
-          </li>
-        
-          <li>
-            <a href="/2024/07/16/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%BC%95%E7%94%A8GitHub%E4%BB%93%E5%BA%93%E5%9B%BE%E7%89%87%E5%88%B0Hexo%E5%8D%9A%E5%AE%A2/">教程：如何正确引用GitHub仓库图片到Hexo博客</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
+    <div class="side-col d-none d-lg-block col-lg-2">
       
-      &copy; 2025 chenji<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Inhaltsverzeichnis</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
 
     </div>
-    <nav id="mobile-nav">
+  </div>
+</div>
+
+
+
+
+
   
-    <a href="/" class="mobile-nav-link">Home</a>
+
+
+
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+
+
+
   
-</nav>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-<script src="/js/jquery-3.6.4.min.js"></script>
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener">Hexo</a>  <i class="iconfont icon-love"></i>  <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">Fluid</a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        Alle Aufrufe: 
+        <span id="busuanzi_value_site_pv"></span>
+        
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        Alle Besucher: 
+        <span id="busuanzi_value_site_uv"></span>
+        
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
 
 
 
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 
 
-<script src="/js/script.js"></script>
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
 
 
-  </div>
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog funktioniert am besten mit aktiviertem JavaScript</div>
+  </noscript>
 </body>
 </html>
