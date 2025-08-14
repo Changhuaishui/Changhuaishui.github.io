@@ -86,8 +86,6 @@
     
     <tags>
       
-      <tag>问题排查</tag>
-      
       <tag>Gemini</tag>
       
       <tag>CLI</tag>
@@ -95,6 +93,8 @@
       <tag>Google AI</tag>
       
       <tag>代理设置</tag>
+      
+      <tag>问题排查</tag>
       
     </tags>
     
@@ -200,8 +200,6 @@
     
     <tags>
       
-      <tag>Java</tag>
-      
       <tag>Spring</tag>
       
       <tag>MVC</tag>
@@ -209,6 +207,8 @@
       <tag>CORS</tag>
       
       <tag>跨域</tag>
+      
+      <tag>Java</tag>
       
     </tags>
     
@@ -274,11 +274,11 @@
       
       <tag>IntelliJ IDEA</tag>
       
+      <tag>问题排查</tag>
+      
       <tag>Git</tag>
       
       <tag>网络代理</tag>
-      
-      <tag>问题排查</tag>
       
     </tags>
     
