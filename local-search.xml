@@ -200,6 +200,8 @@
     
     <tags>
       
+      <tag>Java</tag>
+      
       <tag>Spring</tag>
       
       <tag>MVC</tag>
@@ -207,8 +209,6 @@
       <tag>CORS</tag>
       
       <tag>跨域</tag>
-      
-      <tag>Java</tag>
       
     </tags>
     
