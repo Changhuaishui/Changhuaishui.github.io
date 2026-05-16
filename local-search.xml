@@ -4,6 +4,41 @@
   
   
   <entry>
+    <title>Win11升级后踩的三个坑</title>
+    <link href="/2026/05/16/Win11%E5%8D%87%E7%BA%A7%E5%90%8E%E7%9A%84%E4%B8%89%E4%B8%AA%E5%9D%91/"/>
+    <url>/2026/05/16/Win11%E5%8D%87%E7%BA%A7%E5%90%8E%E7%9A%84%E4%B8%89%E4%B8%AA%E5%9D%91/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Win11-升级后踩的三个坑"><a href="#Win11-升级后踩的三个坑" class="headerlink" title="Win11 升级后踩的三个坑"></a>Win11 升级后踩的三个坑</h1><blockquote><p>记录于 2026.05.16，重装系统到 Win11 之后，陆续遇到的问题。<br>写下来是因为每个都花了点时间才定位到真正原因，而真正原因往往不是第一直觉猜的那个。</p></blockquote><hr><h2 id="一、共享文件夹访问不了"><a href="#一、共享文件夹访问不了" class="headerlink" title="一、共享文件夹访问不了"></a>一、共享文件夹访问不了</h2><p>同事的共享文件夹，<code>\\192.168.1.143</code>，突然访问不了了。弹窗写的是”Windows 无法访问”，很笼统。</p><p><img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/4708289130ae4bbaba267e7cfd4177fa.png~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=2026031816050793D4B22A35500D5FD07A&rrcfp=dafada99&x-expires=2090045107&x-signature=qzCwNIKsWcqANJh25mvz3MLYzoI=" alt="img"></p><p>第一反应是防火墙。改了半天规则，没用。</p><p>后来冷静下来想了一步——先确认网络层通不通。ping 是通的，端口 445（SMB 用的端口）也是通的。那说明不是网络的问题，是协议层的问题。</p><p>查了 SMB 客户端配置，发现 <code>RequireSecuritySignature</code> 是 <code>True</code>。</p><p>这就对了。Win11 更新后默认强制要求 SMB 签名。我的机器升级了，同事的没有，两边签名能力不对等，握手就失败了。本质上是一个版本差导致的协议协商失败。</p><p><strong>解法：</strong></p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 管理员 PowerShell</span><br><span class="hljs-built_in">Set-SmbClientConfiguration</span> <span class="hljs-literal">-RequireSecuritySignature</span> <span class="hljs-variable">$false</span> <span class="hljs-literal">-Force</span><br></code></pre></td></tr></table></figure><p>或者走组策略：<code>gpedit.msc</code> → 计算机配置 → Windows 设置 → 安全设置 → 本地策略 → 安全选项 → <code>Microsoft 网络客户端: 数字签名通信(始终)</code> → 已禁用。</p><p>改完重启下服务：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Restart-Service</span> LanmanWorkstation <span class="hljs-literal">-Force</span><br></code></pre></td></tr></table></figure><p><strong>一句话总结：</strong> 能 ping 通但访问不了共享，大概率不是防火墙，是 SMB 签名策略不一致。</p><hr><h2 id="二、Defender-拦截了正常软件"><a href="#二、Defender-拦截了正常软件" class="headerlink" title="二、Defender 拦截了正常软件"></a>二、Defender 拦截了正常软件</h2><p>解压 MobaXterm 的时候，右下角弹了个”发现威胁”。一开始以为是防火墙拦的，其实不是——是 Microsoft Defender 防病毒的实时保护在扫描文件时把它当威胁处理了。</p><p>查了一下检测记录，被误杀的还不少：Clash、HBuilderX 的 cli.exe、MarkdownPad、Typora 安装包……全是开发者常用工具。Defender 对这类带壳或者非签名的程序确实容易误报。</p><p>关闭实时保护可以临时解决，但重启后会自动恢复。更稳妥的做法是加排除项。</p><p><strong>解法：</strong></p><p>Windows 安全中心 → 病毒和威胁防护 → 管理设置 → 拉到最底部 → 排除项 → 添加或删除排除项 → 添加文件夹。</p><p>把常放工具和代码的目录加进去，比如 <code>D:\软件</code>、桌面路径等。</p><p>如果想用命令行加，需要先关掉「篡改防护」，然后在<strong>管理员 PowerShell</strong> 里执行：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Set-MpPreference</span> <span class="hljs-literal">-ExclusionPath</span> <span class="hljs-string">&quot;D:\软件&quot;</span>,<span class="hljs-string">&quot;C:\Users\Administrator\Desktop&quot;</span><br></code></pre></td></tr></table></figure><p>这里有个细节容易忽略：即使关了实时保护和篡改防护，如果终端本身不是以管理员身份启动的，命令一样会报权限不足。所以要么右键”以管理员身份运行”终端，要么直接在 GUI 里加排除项，GUI 反而更省事。</p><p><strong>一句话总结：</strong> 开发机上 Defender 误报是常态，别关实时保护，加排除目录就行。</p><hr><h2 id="三、Win11-激活失败-0x80072EFE"><a href="#三、Win11-激活失败-0x80072EFE" class="headerlink" title="三、Win11 激活失败 0x80072EFE"></a>三、Win11 激活失败 0x80072EFE</h2><p>重装完系统，激活的时候报了 <code>0x80072EFE</code>。查了一下，这个错误码是”服务器响应超时或连接丢失”，属于网络问题。</p><p>但网络明明是通的——浏览器能上网，ping 也正常。</p><p>想了一下，我开着 Clash 代理。激活请求走了代理通道，微软的激活服务器要么拒绝了代理 IP，要么连接被中间环节丢掉了。</p><p><strong>第一步：关掉 Clash 的系统代理，直连激活。</strong></p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 管理员 PowerShell</span><br>slmgr.vbs /ato<br></code></pre></td></tr></table></figure><p>如果还不行，重置一下激活服务：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">net stop sppsvc<br>net <span class="hljs-built_in">start</span> sppsvc<br>slmgr.vbs /ato<br></code></pre></td></tr></table></figure><p>我这边试了还是不行。用 <code>slmgr.vbs /xpr</code> 查了一下当前状态，发现装的是 <code>ProfessionalCountrySpecific</code>——特供版，不是标准 Pro。这个版本没法直接联网激活，得先换密钥。</p><p><strong>实际解法：</strong></p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 1. 换成标准 Pro 通用密钥</span><br>slmgr.vbs /ipk W269N<span class="hljs-literal">-WFGWX-YVC9B-4J6C9-T83GX</span><br><br><span class="hljs-comment"># 2. 指向 KMS 服务器</span><br>slmgr.vbs /skms kms.<span class="hljs-number">03</span>k.org<br><br><span class="hljs-comment"># 3. 激活</span><br>slmgr.vbs /ato<br></code></pre></td></tr></table></figure><p>激活成功，显示批量激活到期时间为 2026&#x2F;09&#x2F;14。</p><p><strong>一句话总结：</strong> 激活报网络错误，先排查代理；如果关了代理还不行，大概率是系统版本不对，查一下是不是特供版。</p><hr><h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p>三个问题，表面上看分别是”网络不通”、”防火墙拦截”、”激活超时”，但实际原因分别是协议签名策略、防病毒误报、代理干扰加上系统版本错误。</p><p>排查的思路其实就一条：<strong>先确认你以为的原因是不是真的原因，再动手改。</strong> 多查一步状态，少走很多弯路。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术教程</category>
+      
+      <category>系统配置</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Windows 11</tag>
+      
+      <tag>SMB</tag>
+      
+      <tag>Defender</tag>
+      
+      <tag>系统激活</tag>
+      
+      <tag>故障排除</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>告别蓝牙失联！Win笔记本&quot;代码43&quot;错误自救指南</title>
     <link href="/2025/08/10/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/"/>
     <url>/2025/08/10/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/</url>
@@ -22,11 +57,11 @@
     
     <tags>
       
+      <tag>故障排除</tag>
+      
       <tag>Windows</tag>
       
       <tag>蓝牙</tag>
-      
-      <tag>故障排除</tag>
       
       <tag>代码43</tag>
       
@@ -86,6 +121,8 @@
     
     <tags>
       
+      <tag>问题排查</tag>
+      
       <tag>Gemini</tag>
       
       <tag>CLI</tag>
@@ -93,8 +130,6 @@
       <tag>Google AI</tag>
       
       <tag>代理设置</tag>
-      
-      <tag>问题排查</tag>
       
     </tags>
     
@@ -200,8 +235,6 @@
     
     <tags>
       
-      <tag>Java</tag>
-      
       <tag>Spring</tag>
       
       <tag>MVC</tag>
@@ -209,6 +242,8 @@
       <tag>CORS</tag>
       
       <tag>跨域</tag>
+      
+      <tag>Java</tag>
       
     </tags>
     
@@ -274,11 +309,11 @@
       
       <tag>IntelliJ IDEA</tag>
       
-      <tag>问题排查</tag>
-      
       <tag>Git</tag>
       
       <tag>网络代理</tag>
+      
+      <tag>问题排查</tag>
       
     </tags>
     

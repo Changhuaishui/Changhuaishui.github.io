@@ -19,30 +19,30 @@
   <meta name="author" content="chenji">
   <meta name="keywords" content="">
   
-    <meta name="description" content="告别蓝牙失联！Win笔记本”代码43”错误自救指南摘要问题表述：笔记本开启节能模式或息屏后，蓝牙功能突然“消失”不见，设备管理器里显示蓝牙模块带感叹号，并提示“由于该设备有问题，Windows 已将其停止。(代码 43)”本文将分享最近解决这一问题的经验，快速恢复蓝牙功能，无需重启电脑！ 问题发现：息屏后蓝牙失效最近，我的Windows笔记本电脑遇到了一个令人头疼的问题。为了省电，我通常会开启系统">
+    <meta name="description" content="Win11 升级后踩的三个坑 记录于 2026.05.16，重装系统到 Win11 之后，陆续遇到的问题。写下来是因为每个都花了点时间才定位到真正原因，而真正原因往往不是第一直觉猜的那个。   一、共享文件夹访问不了同事的共享文件夹，\\192.168.1.143，突然访问不了了。弹窗写的是”Windows 无法访问”，很笼统。  第一反应是防火墙。改了半天规则，没用。 后来冷静下来想了一步——先">
 <meta property="og:type" content="article">
-<meta property="og:title" content="告别蓝牙失联！Win笔记本&quot;代码43&quot;错误自救指南">
-<meta property="og:url" content="http://example.com/2025/08/10/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="Win11升级后踩的三个坑">
+<meta property="og:url" content="http://example.com/2026/05/16/Win11%E5%8D%87%E7%BA%A7%E5%90%8E%E7%9A%84%E4%B8%89%E4%B8%AA%E5%9D%91/index.html">
 <meta property="og:site_name" content="陈迹的技术博客">
-<meta property="og:description" content="告别蓝牙失联！Win笔记本”代码43”错误自救指南摘要问题表述：笔记本开启节能模式或息屏后，蓝牙功能突然“消失”不见，设备管理器里显示蓝牙模块带感叹号，并提示“由于该设备有问题，Windows 已将其停止。(代码 43)”本文将分享最近解决这一问题的经验，快速恢复蓝牙功能，无需重启电脑！ 问题发现：息屏后蓝牙失效最近，我的Windows笔记本电脑遇到了一个令人头疼的问题。为了省电，我通常会开启系统">
+<meta property="og:description" content="Win11 升级后踩的三个坑 记录于 2026.05.16，重装系统到 Win11 之后，陆续遇到的问题。写下来是因为每个都花了点时间才定位到真正原因，而真正原因往往不是第一直觉猜的那个。   一、共享文件夹访问不了同事的共享文件夹，\\192.168.1.143，突然访问不了了。弹窗写的是”Windows 无法访问”，很笼统。  第一反应是防火墙。改了半天规则，没用。 后来冷静下来想了一步——先">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/%E8%93%9D%E7%89%99%E5%A4%B1%E6%95%88%E6%88%AA%E5%9B%BE.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/%E8%93%9D%E7%89%99%E6%81%A2%E5%A4%8D%E6%88%AA%E5%9B%BE.png">
-<meta property="article:published_time" content="2025-08-10T01:15:00.000Z">
-<meta property="article:modified_time" content="2025-07-18T11:32:30.907Z">
+<meta property="og:image" content="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/4708289130ae4bbaba267e7cfd4177fa.png~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=2026031816050793D4B22A35500D5FD07A&rrcfp=dafada99&x-expires=2090045107&x-signature=qzCwNIKsWcqANJh25mvz3MLYzoI=">
+<meta property="article:published_time" content="2026-05-16T15:20:41.000Z">
+<meta property="article:modified_time" content="2026-05-16T15:21:52.121Z">
 <meta property="article:author" content="chenji">
+<meta property="article:tag" content="Windows 11">
+<meta property="article:tag" content="SMB">
+<meta property="article:tag" content="Defender">
+<meta property="article:tag" content="系统激活">
 <meta property="article:tag" content="故障排除">
-<meta property="article:tag" content="Windows">
-<meta property="article:tag" content="蓝牙">
-<meta property="article:tag" content="代码43">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/%E8%93%9D%E7%89%99%E5%A4%B1%E6%95%88%E6%88%AA%E5%9B%BE.png">
+<meta name="twitter:image" content="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/4708289130ae4bbaba267e7cfd4177fa.png~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=2026031816050793D4B22A35500D5FD07A&rrcfp=dafada99&x-expires=2090045107&x-signature=qzCwNIKsWcqANJh25mvz3MLYzoI=">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南 - 陈迹的技术博客</title>
+  <title>Win11升级后踩的三个坑 - 陈迹的技术博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -208,7 +208,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南"></span>
+            <span id="subtitle" data-typed-text="Win11升级后踩的三个坑"></span>
           
         </div>
 
@@ -219,8 +219,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-10 09:15" pubdate>
-          2025年8月10日 上午
+        <time datetime="2026-05-16 23:20" pubdate>
+          2026年5月16日 晚上
         </time>
       </span>
     
@@ -231,7 +231,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          1.1k 字
         
       </span>
     
@@ -242,7 +242,7 @@
         
         
         
-          9 分钟
+          10 分钟
         
       </span>
     
@@ -279,49 +279,60 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南</h1>
+            <h1 id="seo-header">Win11升级后踩的三个坑</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="告别蓝牙失联！Win笔记本”代码43”错误自救指南"><a href="#告别蓝牙失联！Win笔记本”代码43”错误自救指南" class="headerlink" title="告别蓝牙失联！Win笔记本”代码43”错误自救指南"></a>告别蓝牙失联！Win笔记本”代码43”错误自救指南</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>问题表述：笔记本开启节能模式或息屏后，蓝牙功能突然“消失”不见，设备管理器里显示蓝牙模块带感叹号，并提示“由于该设备有问题，Windows 已将其停止。(代码 43)”本文将分享最近解决这一问题的经验，快速恢复蓝牙功能，无需重启电脑！</p>
-<h2 id="问题发现：息屏后蓝牙失效"><a href="#问题发现：息屏后蓝牙失效" class="headerlink" title="问题发现：息屏后蓝牙失效"></a>问题发现：息屏后蓝牙失效</h2><p>最近，我的Windows笔记本电脑遇到了一个令人头疼的问题。为了省电，我通常会开启系统的节能模式。然而，我注意到一个奇怪的现象：当笔记本息屏一段时间后，或者从休眠状态唤醒时，原本正常工作的蓝牙功能竟然“消失”了！</p>
-<p>打开Windows设置界面，原本应该有的蓝牙开关和选项不见踪影，就好像笔记本电脑根本没有蓝牙模块一样。这导致我所有的蓝牙外设，如蓝牙耳机、鼠标等，都无法连接，严重影响了日常使用。</p>
-<h2 id="问题定位：“代码43”错误浮出水面"><a href="#问题定位：“代码43”错误浮出水面" class="headerlink" title="问题定位：“代码43”错误浮出水面"></a>问题定位：“代码43”错误浮出水面</h2><p>面对蓝牙的“人间蒸发”，我首先想到了去设备管理器查看。</p>
-<ol>
-<li>按下 <code>Win + X</code> 键，选择 <code>设备管理器</code>。</li>
-<li>展开 <code>蓝牙</code> 类别。</li>
-</ol>
-<p>果然，在蓝牙设备列表中，我发现我的蓝牙适配器（显示为“英特尔(R) 无线 Bluetooth(R)”）旁边显示着一个<strong>黄色的感叹号</strong></p>
-<p><img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/%E8%93%9D%E7%89%99%E5%A4%B1%E6%95%88%E6%88%AA%E5%9B%BE.png" srcset="/img/loading.gif" lazyload alt="设备管理器中的蓝牙设备"><br><em>图1：设备管理器中带有感叹号的蓝牙设备</em></p>
-<p>双击该设备，查看其属性，在“常规”选项卡下，我看到了这样的提示信息：</p>
-<blockquote>
-<p><strong>“由于该设备有问题，Windows 已将其停止。 (代码 43)”</strong></p>
+                <h1 id="Win11-升级后踩的三个坑"><a href="#Win11-升级后踩的三个坑" class="headerlink" title="Win11 升级后踩的三个坑"></a>Win11 升级后踩的三个坑</h1><blockquote>
+<p>记录于 2026.05.16，重装系统到 Win11 之后，陆续遇到的问题。<br>写下来是因为每个都花了点时间才定位到真正原因，而真正原因往往不是第一直觉猜的那个。</p>
 </blockquote>
-<p><img src="https://raw.githubusercontent.com/Changhuaishui/chenji/main/source/_posts/image/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/%E8%93%9D%E7%89%99%E6%81%A2%E5%A4%8D%E6%88%AA%E5%9B%BE.png" srcset="/img/loading.gif" lazyload alt="设备管理器中的蓝牙设备列表"><br><em>图2：蓝牙设备列表恢复后</em></p>
-<p>这个“代码43”错误清晰地指出了问题的根源：Windows系统检测到蓝牙设备存在故障，并为了避免更深层的问题而将其禁用了。而我发现，这个错误常常在节能模式下息屏或休眠后出现，让我联想到可能是电源管理策略导致了蓝牙模块的异常。</p>
-<h2 id="解决过程：禁用再启用，轻松修复！"><a href="#解决过程：禁用再启用，轻松修复！" class="headerlink" title="解决过程：禁用再启用，轻松修复！"></a>解决过程：禁用再启用，轻松修复！</h2><p>在排除了硬件彻底损坏的可能性后（因为重启电脑通常可以恢复），我决定尝试一种不需要重启电脑的方法。</p>
-<p><strong>修复步骤如下：</strong></p>
-<ol>
-<li>继续保持在 <strong>设备管理器</strong> 界面。</li>
-<li>在 <code>蓝牙</code> 类别下，找到带有黄色感叹号的蓝牙适配器（例如：“英特尔(R) 无线 Bluetooth(R)”）。</li>
-<li><strong>右键点击</strong> 该蓝牙设备。</li>
-<li>在弹出的菜单中，选择 <strong><code>禁用设备</code></strong>。<ul>
-<li>此时系统会提示你“禁用此设备会使其停止工作。确实要禁用它吗？”，点击 <strong><code>是</code></strong> 确认。</li>
-</ul>
-</li>
-<li>等待几秒钟，你会发现该蓝牙设备的图标上会多出一个向下的箭头，表示它已被禁用。</li>
-<li>再次 <strong>右键点击</strong> 该蓝牙设备。</li>
-<li>在弹出的菜单中，选择 <strong><code>启用设备</code></strong>。</li>
-</ol>
-<p>完成上述操作后，奇迹发生了！那个烦人的黄色感叹号消失了，蓝牙设备恢复了正常工作状态。随即，Windows设置中的蓝牙开关也重新出现，我的蓝牙外设也能够正常连接使用了。</p>
-<h2 id="经验总结与思考"><a href="#经验总结与思考" class="headerlink" title="经验总结与思考"></a>经验总结与思考</h2><p>这次解决蓝牙问题的过程让我意识到：</p>
-<ul>
-<li><strong>“代码43”错误不一定意味着硬件损坏。</strong> 它更可能表示设备或驱动程序处于异常状态。</li>
-<li><strong>电源管理设置可能是幕后黑手。</strong> 节能模式下，系统可能会过度优化，导致某些设备（如蓝牙模块）在恢复时未能正确初始化。</li>
-<li><strong>“禁用再启用”。</strong> 这种方法相当于给设备进行了一次“软重启”，通常能够解决驱动程序或设备状态的临时性故障，而且最重要的是，它不需要重启整个电脑，非常适合有重要任务在运行不能关机的情况。</li>
-</ul>
-<p>希望这篇博客能帮到你！</p>
+<hr>
+<h2 id="一、共享文件夹访问不了"><a href="#一、共享文件夹访问不了" class="headerlink" title="一、共享文件夹访问不了"></a>一、共享文件夹访问不了</h2><p>同事的共享文件夹，<code>\\192.168.1.143</code>，突然访问不了了。弹窗写的是”Windows 无法访问”，很笼统。</p>
+<p><img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/4708289130ae4bbaba267e7cfd4177fa.png~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=2026031816050793D4B22A35500D5FD07A&rrcfp=dafada99&x-expires=2090045107&x-signature=qzCwNIKsWcqANJh25mvz3MLYzoI=" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>第一反应是防火墙。改了半天规则，没用。</p>
+<p>后来冷静下来想了一步——先确认网络层通不通。ping 是通的，端口 445（SMB 用的端口）也是通的。那说明不是网络的问题，是协议层的问题。</p>
+<p>查了 SMB 客户端配置，发现 <code>RequireSecuritySignature</code> 是 <code>True</code>。</p>
+<p>这就对了。Win11 更新后默认强制要求 SMB 签名。我的机器升级了，同事的没有，两边签名能力不对等，握手就失败了。本质上是一个版本差导致的协议协商失败。</p>
+<p><strong>解法：</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 管理员 PowerShell</span><br><span class="hljs-built_in">Set-SmbClientConfiguration</span> <span class="hljs-literal">-RequireSecuritySignature</span> <span class="hljs-variable">$false</span> <span class="hljs-literal">-Force</span><br></code></pre></td></tr></table></figure>
+
+<p>或者走组策略：<code>gpedit.msc</code> → 计算机配置 → Windows 设置 → 安全设置 → 本地策略 → 安全选项 → <code>Microsoft 网络客户端: 数字签名通信(始终)</code> → 已禁用。</p>
+<p>改完重启下服务：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Restart-Service</span> LanmanWorkstation <span class="hljs-literal">-Force</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>一句话总结：</strong> 能 ping 通但访问不了共享，大概率不是防火墙，是 SMB 签名策略不一致。</p>
+<hr>
+<h2 id="二、Defender-拦截了正常软件"><a href="#二、Defender-拦截了正常软件" class="headerlink" title="二、Defender 拦截了正常软件"></a>二、Defender 拦截了正常软件</h2><p>解压 MobaXterm 的时候，右下角弹了个”发现威胁”。一开始以为是防火墙拦的，其实不是——是 Microsoft Defender 防病毒的实时保护在扫描文件时把它当威胁处理了。</p>
+<p>查了一下检测记录，被误杀的还不少：Clash、HBuilderX 的 cli.exe、MarkdownPad、Typora 安装包……全是开发者常用工具。Defender 对这类带壳或者非签名的程序确实容易误报。</p>
+<p>关闭实时保护可以临时解决，但重启后会自动恢复。更稳妥的做法是加排除项。</p>
+<p><strong>解法：</strong></p>
+<p>Windows 安全中心 → 病毒和威胁防护 → 管理设置 → 拉到最底部 → 排除项 → 添加或删除排除项 → 添加文件夹。</p>
+<p>把常放工具和代码的目录加进去，比如 <code>D:\软件</code>、桌面路径等。</p>
+<p>如果想用命令行加，需要先关掉「篡改防护」，然后在<strong>管理员 PowerShell</strong> 里执行：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Set-MpPreference</span> <span class="hljs-literal">-ExclusionPath</span> <span class="hljs-string">&quot;D:\软件&quot;</span>,<span class="hljs-string">&quot;C:\Users\Administrator\Desktop&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>这里有个细节容易忽略：即使关了实时保护和篡改防护，如果终端本身不是以管理员身份启动的，命令一样会报权限不足。所以要么右键”以管理员身份运行”终端，要么直接在 GUI 里加排除项，GUI 反而更省事。</p>
+<p><strong>一句话总结：</strong> 开发机上 Defender 误报是常态，别关实时保护，加排除目录就行。</p>
+<hr>
+<h2 id="三、Win11-激活失败-0x80072EFE"><a href="#三、Win11-激活失败-0x80072EFE" class="headerlink" title="三、Win11 激活失败 0x80072EFE"></a>三、Win11 激活失败 0x80072EFE</h2><p>重装完系统，激活的时候报了 <code>0x80072EFE</code>。查了一下，这个错误码是”服务器响应超时或连接丢失”，属于网络问题。</p>
+<p>但网络明明是通的——浏览器能上网，ping 也正常。</p>
+<p>想了一下，我开着 Clash 代理。激活请求走了代理通道，微软的激活服务器要么拒绝了代理 IP，要么连接被中间环节丢掉了。</p>
+<p><strong>第一步：关掉 Clash 的系统代理，直连激活。</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 管理员 PowerShell</span><br>slmgr.vbs /ato<br></code></pre></td></tr></table></figure>
+
+<p>如果还不行，重置一下激活服务：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">net stop sppsvc<br>net <span class="hljs-built_in">start</span> sppsvc<br>slmgr.vbs /ato<br></code></pre></td></tr></table></figure>
+
+<p>我这边试了还是不行。用 <code>slmgr.vbs /xpr</code> 查了一下当前状态，发现装的是 <code>ProfessionalCountrySpecific</code>——特供版，不是标准 Pro。这个版本没法直接联网激活，得先换密钥。</p>
+<p><strong>实际解法：</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 1. 换成标准 Pro 通用密钥</span><br>slmgr.vbs /ipk W269N<span class="hljs-literal">-WFGWX-YVC9B-4J6C9-T83GX</span><br><br><span class="hljs-comment"># 2. 指向 KMS 服务器</span><br>slmgr.vbs /skms kms.<span class="hljs-number">03</span>k.org<br><br><span class="hljs-comment"># 3. 激活</span><br>slmgr.vbs /ato<br></code></pre></td></tr></table></figure>
+
+<p>激活成功，显示批量激活到期时间为 2026&#x2F;09&#x2F;14。</p>
+<p><strong>一句话总结：</strong> 激活报网络错误，先排查代理；如果关了代理还不行，大概率是系统版本不对，查一下是不是特供版。</p>
+<hr>
+<h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p>三个问题，表面上看分别是”网络不通”、”防火墙拦截”、”激活超时”，但实际原因分别是协议签名策略、防病毒误报、代理干扰加上系统版本错误。</p>
+<p>排查的思路其实就一条：<strong>先确认你以为的原因是不是真的原因，再动手改。</strong> 多查一步状态，少走很多弯路。</p>
 
                 
               </div>
@@ -345,7 +356,7 @@
   
     <span>></span>
     
-  <a href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/%E7%A1%AC%E4%BB%B6%E9%97%AE%E9%A2%98/" class="category-chain-item">硬件问题</a>
+  <a href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/" class="category-chain-item">系统配置</a>
   
   
 
@@ -362,13 +373,15 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
+        <a href="/tags/Windows-11/" class="print-no-link">#Windows 11</a>
+      
+        <a href="/tags/SMB/" class="print-no-link">#SMB</a>
+      
+        <a href="/tags/Defender/" class="print-no-link">#Defender</a>
+      
+        <a href="/tags/%E7%B3%BB%E7%BB%9F%E6%BF%80%E6%B4%BB/" class="print-no-link">#系统激活</a>
+      
         <a href="/tags/%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4/" class="print-no-link">#故障排除</a>
-      
-        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
-      
-        <a href="/tags/%E8%93%9D%E7%89%99/" class="print-no-link">#蓝牙</a>
-      
-        <a href="/tags/%E4%BB%A3%E7%A0%8143/" class="print-no-link">#代码43</a>
       
     </div>
   
@@ -380,8 +393,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南</div>
-      <div>http://example.com/2025/08/10/笔记本蓝牙连接问题/</div>
+      <div>Win11升级后踩的三个坑</div>
+      <div>http://example.com/2026/05/16/Win11升级后的三个坑/</div>
     </div>
     <div class="license-meta">
       
@@ -393,7 +406,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年8月10日</div>
+          <div>2026年5月16日</div>
         </div>
       
       
@@ -425,18 +438,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/05/16/Win11%E5%8D%87%E7%BA%A7%E5%90%8E%E7%9A%84%E4%B8%89%E4%B8%AA%E5%9D%91/" title="Win11升级后踩的三个坑">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Win11升级后踩的三个坑</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/07/16/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%BC%95%E7%94%A8GitHub%E4%BB%93%E5%BA%93%E5%9B%BE%E7%89%87%E5%88%B0Hexo%E5%8D%9A%E5%AE%A2/" title="教程：如何正确引用GitHub仓库图片到Hexo博客">
-                        <span class="hidden-mobile">教程：如何正确引用GitHub仓库图片到Hexo博客</span>
+                      <a href="/2025/08/10/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/" title="告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南">
+                        <span class="hidden-mobile">告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
