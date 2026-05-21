@@ -158,6 +158,8 @@
     
     <tags>
       
+      <tag>问题排查</tag>
+      
       <tag>Gemini</tag>
       
       <tag>CLI</tag>
@@ -165,8 +167,6 @@
       <tag>Google AI</tag>
       
       <tag>代理设置</tag>
-      
-      <tag>问题排查</tag>
       
     </tags>
     
@@ -212,11 +212,11 @@
     
     <tags>
       
+      <tag>网络</tag>
+      
       <tag>Maven</tag>
       
       <tag>依赖</tag>
-      
-      <tag>网络</tag>
       
       <tag>IntelliJ</tag>
       
@@ -346,11 +346,11 @@
       
       <tag>IntelliJ IDEA</tag>
       
-      <tag>问题排查</tag>
-      
       <tag>Git</tag>
       
       <tag>网络代理</tag>
+      
+      <tag>问题排查</tag>
       
     </tags>
     
