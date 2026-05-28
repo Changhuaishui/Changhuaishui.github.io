@@ -42,7 +42,15 @@ Use the existing `Changhuaishui.github.io` repository with two branches:
 
 ## GitHub Actions deployment
 
-The workflow in `.github/workflows/deploy.yml` is intended to run on the `source` branch and publish the generated `public/` directory back to the `main` branch of the same repository.
+The ready-to-use workflow template is stored at `docs/deploy.workflow.yml`.
+
+To enable automatic deployment on GitHub, copy it to:
+
+```text
+.github/workflows/deploy.yml
+```
+
+The workflow is intended to run on the `source` branch and publish the generated `public/` directory back to the `main` branch of the same repository.
 
 ## Notes
 
