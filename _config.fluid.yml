@@ -1,0 +1,82 @@
+favicon: /image/DORO/蜘蛛doro.gif
+apple_touch_icon: /img/fluid.png
+
+navbar:
+  blog_title: "陈迹的博客"
+  menu:
+    - { key: "home", link: "/", icon: "iconfont icon-home-fill" }
+    - { key: "archive", link: "/archives/", icon: "iconfont icon-archive-fill" }
+    - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
+    - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
+    - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
+
+search:
+  enable: true
+  path: /local-search.xml
+  generate_path: /local-search.xml
+  field: post
+  content: true
+
+index:
+  banner_img: /img/default.png
+  banner_img_height: 100
+  banner_mask_alpha: 0.3
+  slogan:
+    enable: true
+    text: "陈迹的技术博客"
+
+post:
+  banner_img: /img/default.png
+
+archive:
+  banner_img: /img/default.png
+
+category:
+  banner_img: /img/default.png
+
+tag:
+  banner_img: /img/default.png
+
+about:
+  banner_img: /img/default.png
+
+links:
+  banner_img: /img/default.png
+
+fun_features:
+  typing:
+    enable: true
+    typeSpeed: 70
+    cursorChar: "_"
+    loop: false
+  anchorjs:
+    enable: true
+    element: h1,h2,h3,h4,h5,h6
+    placement: left
+    visible: hover
+    icon: ""
+  progressbar:
+    enable: true
+    height_px: 3
+    color: "#29d"
+    options:
+      showSpinner: false
+      trickleSpeed: 100
+
+code:
+  copy_btn: true
+  language:
+    enable: true
+    default: "TEXT"
+  highlight:
+    enable: true
+    line_number: true
+    lib: "highlightjs"
+    highlightjs:
+      style: "github gist"
+      style_dark: "dark"
+
+color:
+  navbar_bg_color: "#2f4154"
+  navbar_bg_color_dark: "#1f3144"
+

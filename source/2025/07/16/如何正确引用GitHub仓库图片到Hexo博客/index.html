@@ -1,0 +1,734 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/image/DORO/%E8%9C%98%E8%9B%9Bdoro.gif">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="chenji">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="前言在撰写Hexo博客时，如何稳定、高效地管理和引用图片是一个常见问题。许多博主选择使用GitHub作为免费的图床，但这其中有一些常见的“坑”，比如图片链接失效、图片不显示等。本文将详细总结从创建仓库到在Markdown中正确引用图片，再到最终发布的完整流程和注意事项。 流程概览 创建一个公开的GitHub仓库作为图床。 上传图片文件到该仓库。 获取图片的正确链接（这是最关键的一步！）。 在Mar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="教程：如何正确引用GitHub仓库图片到Hexo博客">
+<meta property="og:url" content="http://example.com/2025/07/16/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%BC%95%E7%94%A8GitHub%E4%BB%93%E5%BA%93%E5%9B%BE%E7%89%87%E5%88%B0Hexo%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:site_name" content="陈迹的技术博客">
+<meta property="og:description" content="前言在撰写Hexo博客时，如何稳定、高效地管理和引用图片是一个常见问题。许多博主选择使用GitHub作为免费的图床，但这其中有一些常见的“坑”，比如图片链接失效、图片不显示等。本文将详细总结从创建仓库到在Markdown中正确引用图片，再到最终发布的完整流程和注意事项。 流程概览 创建一个公开的GitHub仓库作为图床。 上传图片文件到该仓库。 获取图片的正确链接（这是最关键的一步！）。 在Mar">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-15T17:00:00.000Z">
+<meta property="article:modified_time" content="2025-07-18T11:32:30.907Z">
+<meta property="article:author" content="chenji">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="Markdown">
+<meta property="article:tag" content="图片引用">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>教程：如何正确引用GitHub仓库图片到Hexo博客 - 陈迹的技术博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>陈迹的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/image/Stephen_Shore/20.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="教程：如何正确引用GitHub仓库图片到Hexo博客"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-16 01:00" pubdate>
+          2025年7月16日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">教程：如何正确引用GitHub仓库图片到Hexo博客</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在撰写Hexo博客时，如何稳定、高效地管理和引用图片是一个常见问题。许多博主选择使用GitHub作为免费的图床，但这其中有一些常见的“坑”，比如图片链接失效、图片不显示等。本文将详细总结从创建仓库到在Markdown中正确引用图片，再到最终发布的完整流程和注意事项。</p>
+<h2 id="流程概览"><a href="#流程概览" class="headerlink" title="流程概览"></a>流程概览</h2><ol>
+<li><strong>创建</strong>一个<strong>公开</strong>的GitHub仓库作为图床。</li>
+<li><strong>上传</strong>图片文件到该仓库。</li>
+<li><strong>获取</strong>图片的<strong>正确链接</strong>（这是最关键的一步！）。</li>
+<li>在Markdown文章中<strong>引用</strong>图片链接。</li>
+<li><strong>部署</strong>您的Hexo博客。</li>
+</ol>
+<hr>
+<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><h3 id="第一步：创建公开的GitHub仓库"><a href="#第一步：创建公开的GitHub仓库" class="headerlink" title="第一步：创建公开的GitHub仓库"></a>第一步：创建公开的GitHub仓库</h3><p>为了让所有人都能访问到您的图片，存放图片的GitHub仓库<strong>必须是公开的（Public）</strong>。如果是私有仓库（Private），则只有您自己登录后才能看到图片，您的读者将看到一个破碎的图片图标🏞️。</p>
+<h3 id="第二步：上传图片到仓库"><a href="#第二步：上传图片到仓库" class="headerlink" title="第二步：上传图片到仓库"></a>第二步：上传图片到仓库</h3><p>您可以直接在GitHub网页上或者使用Git客户端将图片文件上传到您的图床仓库中。建议在仓库里创建一个专门的文件夹（如 <code>images</code> 或 <code>assets</code>）来存放图片，方便管理。</p>
+<h3 id="第三步：获取正确的图片URL（核心）"><a href="#第三步：获取正确的图片URL（核心）" class="headerlink" title="第三步：获取正确的图片URL（核心）"></a>第三步：获取正确的图片URL（核心）</h3><p>这是最容易出错的地方。我们来深入理解一下不同链接之间的区别。</p>
+<h4 id="链接辨析：网页-vs-原始文件"><a href="#链接辨析：网页-vs-原始文件" class="headerlink" title="链接辨析：网页 vs 原始文件"></a>链接辨析：网页 vs 原始文件</h4><h5 id="1-错误的链接：github-com-网页链接"><a href="#1-错误的链接：github-com-网页链接" class="headerlink" title="1. 错误的链接：github.com 网页链接"></a>1. 错误的链接：<code>github.com</code> 网页链接</h5><ul>
+<li><strong>格式</strong>: <code>https://github.com/USERNAME/REPO/blob/main/images/demo.png</code></li>
+<li><strong>这是什么</strong>: 当你在浏览器中打开这个链接，你看到的不仅仅是图片，而是一个完整的<strong>GitHub网页</strong>，它包含了导航栏、文件列表、代码操作按钮等元素，您的图片只是内嵌在其中。</li>
+<li><strong>为何错误</strong>: 在Markdown中使用 <code>![]()</code> 语法时，它需要一个纯粹的图片文件。你给它一个完整的HTML网页，浏览器无法将其渲染为图片，因此链接会失效。</li>
+<li><strong>一个比喻</strong>: 这就像想在相框里放一张照片，却把整个照相馆（连同前台、沙发和摄影师）都硬塞了进去，相框当然装不下。</li>
+</ul>
+<h5 id="2-正确的链接：raw-githubusercontent-com-原始文件链接"><a href="#2-正确的链接：raw-githubusercontent-com-原始文件链接" class="headerlink" title="2. 正确的链接：raw.githubusercontent.com 原始文件链接"></a>2. 正确的链接：<code>raw.githubusercontent.com</code> 原始文件链接</h5><ul>
+<li><strong>格式</strong>: <code>https://raw.githubusercontent.com/USERNAME/REPO/main/images/demo.png</code></li>
+<li><strong>这是什么</strong>: 这是GitHub专门用来提供**文件原始数据（Raw Content）**的CDN服务器地址。访问这个链接，返回的是没有任何多余元素的、纯粹的图片文件数据。</li>
+<li><strong>为何正确</strong>: 这个链接直接指向图片文件本身，浏览器可以毫无障碍地识别并渲染它。</li>
+<li><strong>继续比喻</strong>: 这个链接相当于直接把<strong>照片本身</strong>递给了相框，完美匹配。</li>
+</ul>
+<h4 id="技巧：如何快速获取正确的图片链接"><a href="#技巧：如何快速获取正确的图片链接" class="headerlink" title="技巧：如何快速获取正确的图片链接"></a>技巧：如何快速获取正确的图片链接</h4><p>你不需要手动修改URL。GitHub提供了一个非常简单的方法来获取正确的原始链接，这是一个百试百灵的技巧：</p>
+<ol>
+<li><strong>第一步：在GitHub上找到您的图片文件</strong><br>打开您的图床仓库，并导航到您想要引用的图片文件页面。</li>
+<li><strong>第二步：找到 “Download” 按钮</strong><br>在图片预览的右上方，你会看到几个按钮，其中有一个是 <strong>“Download”</strong>（下载）按钮。</li>
+<li><strong>第三步：右键复制链接（最关键）</strong><br>将鼠标光标移动到 <strong>“Download”</strong> 按钮上，然后点击鼠标<strong>右键</strong>，在弹出的菜单中选择 <strong>“复制链接地址”</strong> (Copy Link Address) 或类似的选项。</li>
+<li><strong>第四步：粘贴到Markdown</strong><br>现在你的剪贴板里的链接就是格式为 <code>https://raw.githubusercontent.com/...</code> 的正确链接了。直接将它粘贴到你的Markdown文档中即可！</li>
+</ol>
+<p>这样操作，既快速又保证100%正确，再也不用担心链接引用错误的问题了。</p>
+<h3 id="第四步：在Markdown中引用图片"><a href="#第四步：在Markdown中引用图片" class="headerlink" title="第四步：在Markdown中引用图片"></a>第四步：在Markdown中引用图片</h3><p>使用标准的Markdown语法即可：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">![<span class="hljs-string">这里是图片的描述文字</span>](<span class="hljs-link">https://raw.githubusercontent.com/USERNAME/REPO/main/images/demo.png</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="第五步：部署您的Hexo博客"><a href="#第五步：部署您的Hexo博客" class="headerlink" title="第五步：部署您的Hexo博客"></a>第五步：部署您的Hexo博客</h3><p>在确认文章和图片链接无误后，执行标准的部署流程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 1. 清理旧缓存</span><br>hexo clean<br><br><span class="hljs-comment"># 2. 生成新的静态文件</span><br>hexo g<br><br><span class="hljs-comment"># 3. 部署到您的网站</span><br>hexo d<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="注意事项与问题排查"><a href="#注意事项与问题排查" class="headerlink" title="注意事项与问题排查"></a>注意事项与问题排查</h2><ol>
+<li><strong>仓库必须公开</strong>：再次强调，这是图片能否被外部访问的前提。</li>
+<li><strong>文章日期问题</strong>：如果您发现某篇文章在本地存在，但部署后网站上没有显示，请检查文章头部的 <code>date</code>字段。如果日期是一个未来的时间，Hexo默认是不会生成这篇文章的。将其修改为当前或过去的时间即可。</li>
+<li><strong>缓存问题</strong>：在排查问题时，如果确认修改无误但网站仍未更新，请务必<strong>强制刷新</strong>您的浏览器缓存（通常是 <code>Ctrl + Shift + R</code> 或 <code>Cmd + Shift + R</code>）。</li>
+<li><strong>检查URL拼写</strong>：一个字母或符号的错误都会导致链接失效。请仔细核对您的用户名、仓库名、分支名（通常是 <code>main</code>）和文件路径。</li>
+<li><strong>直接访问URL测试</strong>：将最终使用的图片URL直接粘贴到浏览器地址栏并访问。如果图片能正常显示，说明链接本身是有效的。</li>
+<li>GitHub 的原始图片链接格式有误。在 GitHub 中，当你要直接访问原始图片时，URL 中的 “blob&#x2F;main” 应该改为 “main。</li>
+</ol>
+<p>希望这篇总结能帮助您彻底解决Hexo博客中的图片引用问题！</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" class="category-chain-item">博客教程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
+      
+        <a href="/tags/GitHub/" class="print-no-link">#GitHub</a>
+      
+        <a href="/tags/Markdown/" class="print-no-link">#Markdown</a>
+      
+        <a href="/tags/%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/" class="print-no-link">#图片引用</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>教程：如何正确引用GitHub仓库图片到Hexo博客</div>
+      <div>http://example.com/2025/07/16/如何正确引用GitHub仓库图片到Hexo博客/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>chenji</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年7月16日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/08/10/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%93%9D%E7%89%99%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98/" title="告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">告别蓝牙失联！Win笔记本&#34;代码43&#34;错误自救指南</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/07/15/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E9%83%A8%E7%BD%B2Gemini-cli%E5%BF%83%E5%BE%97/" title="部署 Gemini CLI 的排错与解决方案">
+                        <span class="hidden-mobile">部署 Gemini CLI 的排错与解决方案</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener">Hexo</a>  <i class="iconfont icon-love"></i>  <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">Fluid</a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
