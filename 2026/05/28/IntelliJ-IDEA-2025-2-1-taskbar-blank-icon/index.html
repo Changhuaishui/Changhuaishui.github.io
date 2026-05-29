@@ -1,0 +1,733 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/image/DORO/%E8%9C%98%E8%9B%9Bdoro.gif">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="chenji">
+  <meta name="keywords" content="技术博客,Hexo,IntelliJ IDEA,Java">
+  
+    <meta name="description" content="2026-05-28，Windows 11，IntelliJ IDEA 2025.2.1。程序能开。图标不对。  这次的问题不大。就是别扭。 开始菜单里，IntelliJ 的图标是正常的。搜索也能搜到。项目也能打开。偏偏一旦程序跑起来，任务栏上就只剩一个白色空白图标。 我平时不是从固定到任务栏的入口开 IntelliJ。我经常直接对着项目目录右键，用这个入口打开： 1Open Folder as">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IntelliJ IDEA 升级后任务栏变白图标，最后怎么修好的">
+<meta property="og:url" content="https://changhuaishui.github.io/2026/05/28/IntelliJ-IDEA-2025-2-1-taskbar-blank-icon/index.html">
+<meta property="og:site_name" content="陈迹的技术博客">
+<meta property="og:description" content="2026-05-28，Windows 11，IntelliJ IDEA 2025.2.1。程序能开。图标不对。  这次的问题不大。就是别扭。 开始菜单里，IntelliJ 的图标是正常的。搜索也能搜到。项目也能打开。偏偏一旦程序跑起来，任务栏上就只剩一个白色空白图标。 我平时不是从固定到任务栏的入口开 IntelliJ。我经常直接对着项目目录右键，用这个入口打开： 1Open Folder as">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-28T05:40:00.000Z">
+<meta property="article:modified_time" content="2026-05-28T09:20:10.005Z">
+<meta property="article:author" content="chenji">
+<meta property="article:tag" content="IntelliJ">
+<meta property="article:tag" content="JetBrains">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="Windows-11">
+<meta property="article:tag" content="故障排除">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>IntelliJ IDEA 升级后任务栏变白图标，最后怎么修好的 - 陈迹的技术博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"changhuaishui.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>陈迹的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="IntelliJ IDEA 升级后任务栏变白图标，最后怎么修好的"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-05-28 13:40" pubdate>
+          2026年5月28日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">IntelliJ IDEA 升级后任务栏变白图标，最后怎么修好的</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>2026-05-28，Windows 11，IntelliJ IDEA <code>2025.2.1</code>。程序能开。图标不对。</p>
+</blockquote>
+<p>这次的问题不大。就是别扭。</p>
+<p>开始菜单里，IntelliJ 的图标是正常的。搜索也能搜到。项目也能打开。偏偏一旦程序跑起来，任务栏上就只剩一个白色空白图标。</p>
+<p>我平时不是从固定到任务栏的入口开 IntelliJ。我经常直接对着项目目录右键，用这个入口打开：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">Open Folder as IntelliJ IDEA Project<br></code></pre></td></tr></table></figure>
+
+<p>程序能起。项目也能进。只有图标是白的。</p>
+<hr>
+<h2 id="我先以为是-IntelliJ-升级没装干净"><a href="#我先以为是-IntelliJ-升级没装干净" class="headerlink" title="我先以为是 IntelliJ 升级没装干净"></a>我先以为是 IntelliJ 升级没装干净</h2><p>一开始我怀疑得很直接。升级之后白图标，第一反应当然是安装没装利索，或者 Windows 还在认旧版本。</p>
+<p>所以先查最硬的几项：</p>
+<ul>
+<li>安装目录存在</li>
+<li><code>idea64.exe</code> 存在</li>
+<li><code>idea.ico</code> 存在</li>
+<li>程序本身能正常启动</li>
+</ul>
+<p>这一步查完，其实就该收手了。文件没丢。程序也没坏。继续往“重装 IntelliJ”这个方向走，意义已经不大了。</p>
+<p>然后我又怀疑是不是 Windows 还认着旧版本路径。</p>
+<p>注册表里几项关键内容都正常：</p>
+<ul>
+<li>卸载信息里能看到 <code>IntelliJ IDEA 2025.2.1</code></li>
+<li><code>DisplayIcon</code> 指向的是当前版本的 <code>idea64.exe</code></li>
+<li>右键菜单 <code>Open Folder as IntelliJ IDEA Project</code> 指向的也是当前版本路径</li>
+</ul>
+<p>也就是说，Windows 其实已经识别到当前版本了。</p>
+<p>我甚至还往环境变量上想了一下。现在回头看，这一步也有点多余。</p>
+<p>JetBrains 这种桌面应用，任务栏图标显示本来就不是靠环境变量吃饭的。开始菜单能看到图标。程序能启动。再去查环境变量，方向已经偏了。</p>
+<p><strong>一句话总结：</strong> 文件、注册表、版本识别都正常时，先别急着重装，也别往环境变量上猜。</p>
+<hr>
+<h2 id="真正的现象其实更怪：开始菜单对，任务栏不对"><a href="#真正的现象其实更怪：开始菜单对，任务栏不对" class="headerlink" title="真正的现象其实更怪：开始菜单对，任务栏不对"></a>真正的现象其实更怪：开始菜单对，任务栏不对</h2><p>查到这里，问题反而变清楚了。</p>
+<p>开始菜单里的 IntelliJ 图标是对的。搜索结果里的图标也是对的。只有运行中的任务栏图标是白的。</p>
+<p>这说明一个事实：<strong>图标资源并没有丢。丢的是任务栏对这个运行窗口的匹配。</strong></p>
+<p>先按最保守的思路做了一轮：</p>
+<ul>
+<li>关闭 IntelliJ</li>
+<li>重启 <code>Explorer</code></li>
+<li>清理 Windows 的 <code>iconcache</code> &#x2F; <code>thumbcache</code></li>
+</ul>
+<p>结果没用。</p>
+<p>这一步没用之后，思路就该改了。它不是单纯的图标缓存脏了。更像是 Windows 在“这个窗口到底属于哪个应用”这件事上，拿到的信息不够稳定。</p>
+<p><strong>一句话总结：</strong> 开始菜单正常、任务栏异常时，问题通常不在图标文件本身，而在运行态的应用身份匹配。</p>
+<hr>
+<h2 id="最后查到的根因，是快捷方式的图标元数据不完整"><a href="#最后查到的根因，是快捷方式的图标元数据不完整" class="headerlink" title="最后查到的根因，是快捷方式的图标元数据不完整"></a>最后查到的根因，是快捷方式的图标元数据不完整</h2><p>最后真正关键的一步，是去看 IntelliJ 的开始菜单快捷方式。</p>
+<p>快捷方式是有的。不是丢了。问题在于它的 <code>IconLocation</code> 没有被显式设置。</p>
+<p>这件事看上去很小。实际上正好解释了为什么“开始菜单正常，任务栏发白”。</p>
+<ul>
+<li>开始菜单搜索时，Windows 还能从 <code>idea64.exe</code> 里把图标“猜”出来，所以看起来没问题</li>
+<li>任务栏给运行中的窗口做图标匹配时，如果没拿到稳定的快捷方式图标信息，就可能退化成白图标</li>
+</ul>
+<p>问题到这里就定性了。</p>
+<p>不是 IntelliJ 没装好。是 Windows 没把这个运行中的窗口稳定地匹配回 IntelliJ 这条应用身份。</p>
+<p><strong>一句话总结：</strong> 根因不是图标文件缺失，而是开始菜单快捷方式缺少明确的 <code>IconLocation</code>。</p>
+<hr>
+<h2 id="最后怎么修"><a href="#最后怎么修" class="headerlink" title="最后怎么修"></a>最后怎么修</h2><p>真正生效的是下面这三步。</p>
+<h3 id="1-新建用户级开始菜单快捷方式"><a href="#1-新建用户级开始菜单快捷方式" class="headerlink" title="1. 新建用户级开始菜单快捷方式"></a>1. 新建用户级开始菜单快捷方式</h3><p>先在用户级开始菜单里重建一个 IntelliJ 快捷方式：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">C:\Users\29614\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\JetBrains\IntelliJ IDEA 2025.2.1.lnk<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-显式绑定-IntelliJ-的图标文件"><a href="#2-显式绑定-IntelliJ-的图标文件" class="headerlink" title="2. 显式绑定 IntelliJ 的图标文件"></a>2. 显式绑定 IntelliJ 的图标文件</h3><p>这一步最关键。不要只让它指向 <code>idea64.exe</code>。要把图标明确绑到 <code>idea.ico</code>：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">D:\Program Files\JetBrains\IntelliJ IDEA 2025.2.1\bin\idea.ico<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-重启-Explorer"><a href="#3-重启-Explorer" class="headerlink" title="3. 重启 Explorer"></a>3. 重启 Explorer</h3><p>最后重启 <code>Explorer</code>，让 Windows 重新加载快捷方式和任务栏的匹配信息。</p>
+<p>做完之后，任务栏图标就恢复了。</p>
+<p>如果只想记最短版本，其实就是这两句：</p>
+<ul>
+<li>重建用户级开始菜单快捷方式</li>
+<li>显式指定 <code>idea.ico</code></li>
+</ul>
+<p>如果你也遇到类似情况，可以按这个顺序来：</p>
+<ol>
+<li>先清 <code>Explorer</code> 图标缓存</li>
+<li>如果无效，检查开始菜单快捷方式是否存在</li>
+<li>重点看快捷方式有没有显式 <code>IconLocation</code></li>
+<li>用当前版本的 <code>idea.ico</code> 重建用户级快捷方式</li>
+<li>重启 <code>Explorer</code></li>
+</ol>
+<p>前两步是排除。后两步才是这次真正起作用的修复。</p>
+<p><strong>一句话总结：</strong> 这类白图标问题，真要修到点上，往往靠的不是重装程序，而是把 Windows 用来识别这个应用的快捷方式元数据补完整。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/" class="category-chain-item">技术教程</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/" class="category-chain-item">系统配置</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/IntelliJ/" class="print-no-link">#IntelliJ</a>
+      
+        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
+      
+        <a href="/tags/Windows-11/" class="print-no-link">#Windows-11</a>
+      
+        <a href="/tags/%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4/" class="print-no-link">#故障排除</a>
+      
+        <a href="/tags/JetBrains/" class="print-no-link">#JetBrains</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>IntelliJ IDEA 升级后任务栏变白图标，最后怎么修好的</div>
+      <div>https://changhuaishui.github.io/2026/05/28/IntelliJ-IDEA-2025-2-1-taskbar-blank-icon/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>chenji</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年5月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
